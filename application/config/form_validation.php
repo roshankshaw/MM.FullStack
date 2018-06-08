@@ -37,6 +37,23 @@ $config= ['login_rules'=> [
 		  							'field' => 'confirmpassword',
 									'label' => 'Confirm Password',
 									'rules' => 'required|trim'
+		  						]
+		  					],
+		  					'add_article_rules'=>[
+		  						[
+		  							'field' => 'title',
+									'label' => 'Title of the article',
+									'rules' => 'required|alpha_numeric_spaces|trim|is_unique[articles.title]'
 		  						],
-		  				]
-			];
+		  						[
+		  							'field' => 'content',
+									'label' => 'Article Content',
+									'rules' => 'required|trim'
+		  						],
+		  						[
+		  							'field' => 'excerpts',
+									'label' => 'Excerpts',
+									'rules' => 'required|trim'
+		  						],
+		  					]
+		  				];
