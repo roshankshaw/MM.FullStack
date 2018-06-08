@@ -1,0 +1,25 @@
+
+
+/*CONTENT OF THE WEBSITE BEGIN*/
+.forum-section-view{
+	padding-right: 4%;
+}
+
+.post-feed{
+	padding-left: 0px;
+}
+.post-feed li{
+	text-decoration: none;
+	list-style-type: none;	
+}
+.post-feed li:before{
+	content:"\00BB \0020 \0020";
+}
+.post-feed li a{
+	color:black;
+}
+
+
+
+
+/*CONTENT OF THE WEBSITE ENDS*/

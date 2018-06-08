@@ -1,0 +1,28 @@
+/*CONTENT OF THE WEBSITE BEGIN*/
+
+
+.article-body{
+	padding-right:5%;
+}
+.post-feed{
+	padding-left: 0px;
+}
+.post-feed li{
+	text-decoration: none;
+	list-style-type: none;	
+}
+.post-feed li:before{
+	content:"\00BB \0020 \0020";
+}
+.post-feed li a{
+	color:black;
+}
+
+.article-body-p{
+	padding: 20px;
+}
+.article-body-p a{
+	color:gray;
+	font-style: italic;
+}
+/*CONTENT OF THE WEBSITE ENDS*/

@@ -1,0 +1,25 @@
+/*NEWS FEED OF DEPARTMENTS,CAMPUS,VIEWS,CAREERS AND LATEST POST*/
+
+.card{
+	border:none;
+}
+
+.articles>img{
+	height:auto;
+}
+
+
+/*END NEWS FEED OF DEPARTMENTS,CAMPUS,VIEWS,CAREERS AND LATEST POST*/
+
+/*BEGIN LATEST POSTS AND COMMENTS*/
+#comments{
+	display:none;
+}
+.cmtimg{
+	object-fit: contain;
+	max-width: 50px;
+}
+.Sidebar,.newtop{
+	border:1px solid rgb(223,223,223);
+}
+/*END LATEST POSTS AND COMMENTS*/

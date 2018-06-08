@@ -1,0 +1,32 @@
+/*CONTENT OF THE WEBSITE BEGIN*/
+.category-section-view{
+	padding-right: 5%;
+}
+.post-feed{
+	padding-left: 0px;
+}
+.post-feed li{
+	text-decoration: none;
+	list-style-type: none;	
+}
+.post-feed li:before{
+	content:"\00BB \0020 \0020";
+}
+.post-feed li a{
+	color:black;
+}
+.article-body{
+	padding: 20px;
+}
+.article-body a{
+	color:gray;
+	font-style: italic;
+}
+.article-body>article{
+	line-height: 1.5em;
+	overflow: hidden;
+	white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+/*CONTENT OF THE WEBSITE ENDS*/
