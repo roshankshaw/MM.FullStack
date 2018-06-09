@@ -30,21 +30,20 @@
 			<div class="col-md-8 col-sm-12">
 				
 				<!-- ARTICLE FORM BEGINS -->
- 				<?php echo form_open_multipart('articles/store_article');?>
+ 				<?php echo form_open_multipart("articles/update_article/"."{$article->post_id}");?>
  				<?php echo form_hidden('author_id',$this->session->userdata('user_id'));?>
- 				<?php echo form_hidden('created_at',date('Y-m-d H:i:s'));?>
  					<fieldset>
-						<legend>Add New Post</legend>
+						<legend>Edit Article</legend>
 						
 						<div class="form-group">
 							<label >Title of the Article</label>
-			      			<?php echo form_input(['type'=>'name','name'=>'title','class'=>'form-control', 'placeholder'=>'Enter the title of the aritcle','value'=>set_value('title')])?>
+			      			<?php echo form_input(['type'=>'name','name'=>'title','class'=>'form-control', 'placeholder'=>'Enter the title of the aritcle','value'=>set_value('title',$article->title)])?>
 						</div>
 							<?php echo form_error('title')?>
 
 						<div class="form-group">
 							<label for="exampleTextarea">Article Content</label>
-			      			<?php echo form_textarea(['name'=>'content','class'=>'form-control', 'placeholder'=>'Enter the article body','rows'=>'10','value'=>set_value('content')])?>
+			      			<?php echo form_textarea(['name'=>'content','class'=>'form-control', 'placeholder'=>'Enter the article body','rows'=>'10','value'=>set_value('content',$article->content)])?>
 						</div>
 							<?php echo form_error('content')?>
 
@@ -52,7 +51,7 @@
 						<div class="form-group">
 							<label >Excerpts</label>
 			      			<?php echo form_input(['type'=>'name','name'=>'excerpts',
-			      				'class'=>'form-control is-danger','placeholder'=>'Enter some excerpts','value'=>set_value('excerpts')])?>
+			      				'class'=>'form-control is-danger','placeholder'=>'Enter some excerpts','value'=>set_value('excerpts',$article->excerpts)])?>
 						</div>
 							<?php echo form_error('excerpts')?>
 						
@@ -61,7 +60,8 @@
 					      	<?php echo form_upload(['name'=>'userfile','class'=>'form-control-file','aria-describedby'=>'fileHelp']) ?>
 							<!-- If name is other than userfile then pass the name as a parameter in do_upload() function -->
 						</div>
-							<?php  if(isset($upload_error)) echo "*".$upload_error;?>							
+							<small style="  color:red;"><?php  if(isset($upload_error)) echo "*".$upload_error;?></small>
+														
 						<?php echo form_submit(['name'=>'submit','value'=>'Submit','class'=>'btn btn-primary pull-right'])?>
 					</fieldset>
 				<?php form_close(); ?>

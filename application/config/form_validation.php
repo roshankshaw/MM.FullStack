@@ -43,7 +43,7 @@ $config= ['login_rules'=> [
 		  						[
 		  							'field' => 'title',
 									'label' => 'Title of the article',
-									'rules' => 'required|alpha_numeric_spaces|trim|is_unique[articles.title]'
+									'rules' => 'required|alpha_numeric_spaces|trim'
 		  						],
 		  						[
 		  							'field' => 'content',

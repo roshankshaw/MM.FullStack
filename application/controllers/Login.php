@@ -29,7 +29,7 @@ class Login extends MY_Controller{
 			if($login_id)
 			{
 				$this->session->set_userdata(['user_id'=>$login_id,'dname'=>$dname,'role'=>$role]);
-				return redirect('login/login_redirect');
+				return redirect('admin/dashboard');
 			}
 			else
 			{
@@ -41,14 +41,9 @@ class Login extends MY_Controller{
 			$this->load->view('public/admin_login.php');
 		}
 	}
-	public function login_redirect(){
-		if($role=='admin')
-				return redirect('admin/dashboard');
-			else
-				return redirect('user');
-	}
 	public function logout(){
 		$this->session->unset_userdata(['user_id','dname','role']);
 		return redirect('user');
 	}
+	
 }

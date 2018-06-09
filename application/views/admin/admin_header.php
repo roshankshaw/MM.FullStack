@@ -28,8 +28,8 @@
                     <li class="active">
                         <a class="sidebara" href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">Posts</a>
                         <ul class="collapse list-unstyled" id="homeSubmenu">
-                            <li><a href="<?= base_URL('index.php/admin/browse_post')?>">Browse</a></li>
-                            <li><a href="<?= base_URL('index.php/admin/add_article')?>">Add New</a></li>
+                            <li><a href="<?= base_URL('index.php/articles/browse_post')?>">Browse</a></li>
+                            <li><a href="<?= base_URL('index.php/articles/add_article')?>">Add New</a></li>
                         </ul>
                     </li>
                     <li>
