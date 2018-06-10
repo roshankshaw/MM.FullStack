@@ -45,12 +45,14 @@
 				<li class="top-nav-item"><a href="#" >Home</a></li>
 				<li class="top-nav-item"><a href="#" >Contact us</a></li>
 				<li class="top-nav-item"><a href="#" >Issue</a></li>
-				<?php if(!$id):?>
-				<li class="top-nav-item"><a href="<?=base_URL('index.php/login')?>" >Login</a></li>
-				<li class="top-nav-item"><a href="<?=base_URL('index.php/Register')?>" >Register</a></li>
+				<?php if($id):?>
+					<li class="top-nav-item"><a href="<?=base_URL('index.php/login/logout')?>" >Logout</a></li>
+					<?php if($role=="admin"):?>
+						<li class="top-nav-item"><a href="<?=base_URL('index.php/admin/dashboard')?>" >Admin</a></li>
+					<?php endif;?>
 				<?php else: ?>
-				<li class="top-nav-item"><a href="<?=base_URL('index.php/login/logout')?>" >Logout</a></li>
-				<li class="top-nav-item"><a href="<?=base_URL('index.php/admin/dashboard')?>" >Admin</a></li>
+					<li class="top-nav-item"><a href="<?=base_URL('index.php/login')?>" >Login</a></li>
+					<li class="top-nav-item"><a href="<?=base_URL('index.php/Register')?>" >Register</a></li>
 				<?php endif; ?>
 
 			</ul>

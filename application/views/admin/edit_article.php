@@ -4,10 +4,10 @@
 <!-- Page Content Holder -->
 <div id="content" class="col-md-12 col-sm-12">
 	
-	<nav class="navbar navbar-default">
+	<nav class="navbar navbar-default color">
 		<div class="container">
 
-			<div class="navbar-header">
+			<div class="navbar-header color">
 				<button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn">
 					<i class="glyphicon glyphicon-align-left"></i>
 					<span>Toggle Sidebar</span>
@@ -16,7 +16,7 @@
 			
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav navbar-right">
-					<li><a href="<?= base_URL('index.php/login/logout')?>">LOG OUT</a></li>
+					<li><a href="<?= base_URL('index.php/login/logout')?>" id="nav-btn">LOG OUT</a></li>
 					<!-- <li><a href="#">Page</a></li> -->
 				</ul>
 				<div class="nav navbar-right navbar-brand "><strong>Hello, <?php echo $dname;?></strong></div>
@@ -60,12 +60,13 @@
 					      	<?php echo form_upload(['name'=>'userfile','class'=>'form-control-file','aria-describedby'=>'fileHelp']) ?>
 							<!-- If name is other than userfile then pass the name as a parameter in do_upload() function -->
 						</div>
-							<small style="  color:red;"><?php  if(isset($upload_error)) echo "*".$upload_error;?></small>
+							<small style="color:red;"><?php  if(isset($upload_error)) echo "* $upload_error";?></small>
 														
 						<?php echo form_submit(['name'=>'submit','value'=>'Submit','class'=>'btn btn-primary pull-right'])?>
 					</fieldset>
 				<?php form_close(); ?>
 			</div>
+			
 			<!-- SIDEBAR SECTION -->
 			<div class="col-md-4 col-sm-12">
 				<div class="panel-group" >

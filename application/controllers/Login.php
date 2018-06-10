@@ -29,7 +29,7 @@ class Login extends MY_Controller{
 			if($login_id)
 			{
 				$this->session->set_userdata(['user_id'=>$login_id,'dname'=>$dname,'role'=>$role]);
-				return redirect('admin/dashboard');
+				return redirect('user');
 			}
 			else
 			{

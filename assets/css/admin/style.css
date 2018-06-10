@@ -31,11 +31,26 @@ a, a:hover, a:focus {
     margin-bottom: 40px;
     box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
 }
+.color{
+    background-color: rgb(109,127,254);
+}
+.nav>strong, #nav-btn{
+    color:white;
+}
+.form-inline th{
+    padding: 7px 3px;
+}
+ .form-inline>table>thead>th{
+    width:100%;
+ }
 
 .navbar-btn {
     box-shadow: none;
     outline: none !important;
     border: none;
+}
+.form-inline>input{
+    width:100%;
 }
 
 .line {
@@ -164,5 +179,8 @@ a.article, a.article:hover {
     }
     #sidebarCollapse span {
         display: none;
+    }
+    .form-inline{
+        max-width:100%;
     }
 }

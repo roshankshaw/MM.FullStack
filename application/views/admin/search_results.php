@@ -42,18 +42,7 @@
 		<!-- CONTENT FOR THIS LINK BEGINS -->
 
 	<div class="container">
-		<!-- FLASH ALERT -->
-		 <?php if($feedback = $this->session->flashdata('feedback')):
-					$feedback_class=$this->session->flashdata('feedback_class');
-			 ?>
-				<div class="row">
-					<div class="col-md-8 col-md-offset-2">
-						<div class="alert alert-dismissible <?=$feedback_class?>">
-							<center><strong><?= $feedback ?></strong></center>
-						</div>
-					</div>
-				</div>
-		<?php endif;?>
+		<legend>Search Results..</legend>
 		<!-- TABLE BEGINS -->
 		<table class="table table-striped table-hover ">
 			<thead>
@@ -65,11 +54,10 @@
 					<th scope="col">Status</th>
 				</tr>
 			</thead>
-			<div class="panel-group" id="accordion">
-				<tbody class="">
-					
-					<?php if(count($articles)): $count =$this->uri->segment(3); ?>
-						<?php foreach($articles as $article): ?>
+		<div class="panel-group" id="accordion">
+			<tbody class="">
+				<?php if(count($articles)): $count =$this->uri->segment(4); ?>
+					<?php foreach($articles as $article): ?>
 							<tr class="table">
 								<td><?= ++$count ?></td>
 								<td>
@@ -105,7 +93,7 @@
 									</div>
 								</td>
 							</tr>
-						<?php endforeach; ?>
+					<?php endforeach; ?>
 					<?php else: ?>
 						<tr>
 							<td colspan="5">No records found.</td>
@@ -113,8 +101,8 @@
 					<?php endif; ?>
 				</tbody>
 			</div>
-		</table>
-		<center><?php echo $this->pagination->create_links()?></center> 
+		</table> 
+		<center><?php echo $this->pagination->create_links() ?></center>
 	</div>
 </div>
 
