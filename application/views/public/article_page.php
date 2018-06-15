@@ -7,17 +7,17 @@
 				<!-- BEGIN ARTICLE SECTION -->
 				<div class="row">
 					<div class="card">
-						<img src="../images/article3.jpg" alt="" class="img-fluid">
+						<img src="<?= $article->img_path?>" alt="" class="img-fluid">
 						<br>
 						<div class="article-body-p">
-							<h3>Title of the article</h3><hr>
+							<h3><?=$article->title?></h3><hr>
 							<span class="post-tags"><button class="btn btn-success">tag1</button>
 							<button class="btn btn-primary">tag2</button></span>
 							<br>
-							<span class="post-details small"><strong> <a href="#">Date</a> | <a href="#">Admin name</a> | <a href="#">Leave a Comment</a></strong></span>
+							<span class="post-details small"><strong> <a href="#"><?=date('d M Y',strtotime($article->created_at))?></a> | <a href="#">Admin name</a> | <a href="#">Leave a Comment</a></strong></span>
 							<br><br>
 							<article>
-								Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque autem nam a consequatur blanditiis, veritatis, ex velit aut. Harum eveniet voluptatum assumenda praesentium unde accusantium magnam iusto. Quam ad ipsum nostrum possimus illo, velit numquam ullam laboriosam cum accusamus animi ipsa alias, hic similique. Modi inventore saepe fuga minus sunt aperiam repudiandae, hic quos eaque itaque molestias dolore tenetur odio ullam debitis. Ut adipisci velit blanditiis doloremque molestias in voluptatibus delectus inventore, mollitia accusamus dolorum, officiis quibusdam porro at cupiditate nisi sint. Odio est unde omnis nemo impedit earum, incidunt, totam sed voluptas eos enim pariatur et laboriosam molestiae reiciendis.
+								<?=$article->content?>
 							</article>
 						</div>
 					</div>
@@ -34,26 +34,100 @@
 						</div>
 						<div class="card-body">
 							<div class="row">	
+							<?php foreach($related_posts as $image): ?>
 								<div class="col-md-4 col-sm-12">
-									<a href="#"><img class="img-fluid" src="../images/article2.jpg" alt="recent posts"/></a>
-									<span class="post-title small">Strong winds of protest across nitr</span>
-									<span class="post-details small"><strong> <a href="#">Date</a> | <a href="#">Admin name</a> </strong></span>
+									<a href="#"><img class="img-fluid rel_image" src="<?=$image->img_path?>" alt="recent posts"/></a>
+									<span class="post-title small"><?=$image->excerpts?></span>
+									<span class="post-details small"><strong> <a href="#"><?=date('d M Y',strtotime($article->created_at))?></a> | <a href="#">Admin name</a> </strong></span>
 								</div>
-								<div class="col-md-4 col-sm-12">
-									<a href="#"><img class="img-fluid" src="../images/article2.jpg" alt="recent posts"/></a>
-									<span class="post-title small">Strong winds of protest across nitr</span>
-									<span class="post-details small"><strong> <a href="#">Date</a> | <a href="#">Admin name</a> </strong></span>
-								</div>
-								<div class="col-md-4 col-sm-12">
-									<a href="#"><img class="img-fluid" src="../images/article2.jpg" alt="recent posts"/></a>
-									<span class="post-title small">Strong winds of protest across nitr</span>
-									<span class="post-details small"><strong> <a href="#">Date</a> | <a href="#">Admin name</a> </strong></span>
-								</div>
+							<?php endforeach; ?>
 							</div>
 						</div>
 					</div>
 				</div>
 				<!-- END RELATED POSTS	 -->
+				<br><br>
+				<!-- BEGIN COMMENTS -->
+				<div class="row">
+					<div class="card w-100 comment">
+						<div class="card-header">
+							<h5>Comments</h5>
+						</div>
+						<div class="card-body comment">
+							<!-- BEGIUN COMMENT SECTION VIEW-->
+							<?php if(count($comments)): ?>
+								<?php foreach($comments as $comment): ?>
+								<div class="panel panel-default">
+									<div class="panel-heading comment">
+										<div class="card">
+											<div class="card-body">
+												<h4 class="card-title"><?= $comment->author_name ?></h4>
+												<p class="card-text"><?= $comment->comment_body ?></p>
+												<a class="card-link" style data-toggle="collapse" class="text-default small" data-parent="#accordion" href="#collapse<?=$comment->comment_id?>">Reply</a>
+												<a href="#" class="card-link">Edit</a>
+												<a href="#" class="card-link">Delete</a>
+											</div>
+										</div>
+									</div>
+									<!-- BEGIN REPLY SECTION PANEL -->
+									<div id="collapse<?=$comment->comment_id?>" class="panel-collapse collapse reply">
+										<div class="card comment small">
+										<?php if(count($replies)): ?>
+											<?php foreach($replies as $reply): ?>
+												<?php if(($reply->comment_id)==($comment->comment_id)):?>
+													<div class="card-body">
+														<p class="card-text"><?= $reply->reply_body ?></p>
+														<a href="#" class="card-link">Edit</a>
+														<a href="#" class="card-link">Delete</a>
+													</div>
+												<?php endif;?>
+											<?php endforeach; ?>
+											<?php else:?>
+												<strong> No replies yet..</strong>
+										<?php endif; ?>
+											<?php if(!$id): ?>
+												<div class="card-body">
+													<span>
+														You must be <a href="<?=base_URL('index.php/Login')?>">logged in</a> to reply to this a comment	
+													</span>
+												</div>
+											<?php else:?>
+												<div class="card-body">
+													<div class="panel panel-default">
+														<?php echo form_open("user/get_reply/{$comment->comment_id}");?>
+														<?php echo form_hidden('author_id',$id);?>
+														<?php echo form_hidden('author_name',$this->session->userdata('dname'));?>
+														<?php echo form_hidden('post_id',$post_id);?>
+														<?php echo form_hidden('created_at',date('Y-m-d H:i:s'));?>
+														<div class="panel-heading">
+															<div class="form-group">
+																<table>
+																	<thead>
+																		<th>
+																			<?php echo form_textarea(['name'=>'reply_body','class'=>'form-control', 'placeholder'=>'post a reply','rows'=>'2','required'=>'','value'=>set_value('reply_body')])?>
+																		</th>
+																		<th>
+																			<?php echo form_submit(['name'=>'submit','value'=>'post','class'=>'btn btn-primary float-right'])?>
+																		</th>
+																	</thead>
+																</table>
+															</div>
+														</div>
+														<?php echo form_close() ?>
+													</div>
+												</div>
+											<?php endif; ?>
+										</div>
+									</div>
+								</div>
+								<?php endforeach; ?>
+							<?php else: ?>	
+								<strong> No comments on this post</strong>
+							<?php endif; ?>
+						</div>
+					</div>
+				</div>
+				<!-- END COMMENTS -->
 				<br><br>
 				<!-- BEGIN LEAVE A REPLY -->
 				<div class="row">
@@ -61,11 +135,38 @@
 						<div class="card-header">
 							<h5>Leave a Reply</h5>
 						</div>
-						<div class="card-body">
-							<span>
-								You must be <a href="#">logged in</a> to post a comment	
-							</span>
-						</div>
+						<?php if(!$id): ?>
+							<div class="card-body">
+								<span>
+									You must be <a href="<?=base_URL('index.php/Login')?>">logged in</a> to post a comment	
+								</span>
+							</div>
+						<?php else:?>
+							<div class="card-body">
+								<div class="panel panel-default">
+									<?php echo form_open('user/get_comment');?>
+									<?php echo form_hidden('author_id',$id);?>
+									<?php echo form_hidden('author_name',$this->session->userdata('dname'));?>
+									<?php echo form_hidden('post_id',$post_id);?>
+									<?php echo form_hidden('created_at',date('Y-m-d H:i:s'));?>
+									<div class="panel-heading">
+										<div class="form-group">
+													<table>
+														<thead>
+															<th>
+																<?php echo form_textarea(['name'=>'comment_body','class'=>'form-control', 'placeholder'=>'post a comment','rows'=>'2','required'=>'','value'=>set_value('comment_body')])?>
+															</th>
+															<th>
+														<?php echo form_submit(['name'=>'submit','value'=>'post','class'=>'btn btn-primary float-right'])?>
+															</th>
+														</thead>
+													</table>
+											<?php echo form_close() ?>
+										</div>
+									</div>
+								</div>
+							</div>
+						<?php endif; ?>
 					</div>
 				</div>
 				<!-- END LEAVE A REPLY -->
@@ -101,10 +202,9 @@
 						</div>
 						<div class="card-body">
 							<ul class="post-feed">
-								<li><a href="">Art Exhibition Going To Start This Week</a></li>
-								<li><a href="">Grand Live Concert In Germany 2017</a></li>
-								<li><a href="">Fighter plane crash during world war</a></li>
-								<li><a href="">Tips to make cripsy food a helathy diet</a></li>
+								<?php foreach($recent_posts as $image): ?>
+								<li><a href=""><?=$image->title?></a></li>
+							<?php endforeach; ?>
 							</ul>
 						</div>
 					</div>
@@ -147,15 +247,15 @@
 						<div class="card-body">
 							<h6 >How was the performance of CSK this year?</h6>
 							<div class="progress">
-							  <div class="progress-bar" style="width:10%"></div>
+								<div class="progress-bar" style="width:10%"></div>
 							</div>
 							<br>
 							<div class="progress">
-							  <div class="progress-bar bg-success" style="width:20%"></div>
+								<div class="progress-bar bg-success" style="width:20%"></div>
 							</div>
 							<br>				
 							<div class="progress">
-							  <div class="progress-bar bg-info" style="width:30%"></div>
+								<div class="progress-bar bg-info" style="width:30%"></div>
 							</div>
 						</div>
 						<div class="card-footer">

@@ -28,6 +28,9 @@
 	height:54px;
 	width:100%;	
 }
+#latestpost{
+	border: 0px solid white;
+}
 
 #comments{
 	display:none;

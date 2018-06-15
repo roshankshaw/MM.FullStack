@@ -81,7 +81,7 @@
 									</div>
 								</td>
 								<td><?=$dname?></td>
-								<td><?=$article->category?></td>
+								<td><?=$category["{$article->category}"]?></td>
 								<td><?=$article->status ?></td>
 							</tr>
 							<tr class="post_row table">

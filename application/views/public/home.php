@@ -43,7 +43,7 @@
 					<div class="col-md-6 col-sm-12" >
 							<div class="post-new">
 								<img src="<?= $image->img_path ?>" alt="newpost" class="img-fluid newtop img-rounded">        
-								<article>  <?= $image->title ?></article>  
+								<article>  <?=anchor("user/view_article/{$image->post_id}",$image->title)?></article>  
 							</div>
 					</div>
 				<?php endforeach;?>
@@ -58,7 +58,7 @@
 			<div class="col-md-3 col-sm-12" >
 					<div class="post-new card">
 						<img src="<?= $image->img_path ?>" alt="newpost" class="img-fluid newtop">        
-						<article>  <?= $image->title ?></article>  
+						<article>  <?=anchor("user/view_article/{$image->post_id}",$image->title)?></article>  
 					</div>
 			</div>
 			<?php endforeach;?>
@@ -75,16 +75,16 @@
 						<hr>
 						<ul class="list-group">
 						<?php foreach($dept_posts as $image): ?>
-							<li class="list-group-item"><a href="#">
+							<li class="list-group-item">
 								<div class="row">
 									<div class="articles col-md-6 col-sm-12">
 										<img src="<?= $image->img_path ?>" alt="" class="img-fluid feed-img">
 									</div>
 									<div class="article-content col-md-6 col-sm-12 w-100 small">
-										<article>	<?= $image->excerpts ?></article>
+										<?= anchor("user/view_article/{$image->post_id}",$image->excerpts) ?>
 									</div>
 								</div>
-							</a></li>
+							</li>
 						<?php endforeach;?>
 					</div>
 					<div class="section-post col-md-6 col-sm-12">
@@ -92,16 +92,16 @@
 						<hr>
 						<ul class="list-group">
 							<?php foreach($career_posts as $image): ?>
-							<li class="list-group-item"><a href="#">
+							<li class="list-group-item">
 								<div class="row">
 									<div class="articles col-md-6 col-sm-12">
 										<img src="<?= $image->img_path ?>" alt="" class="img-fluid feed-img">
 									</div>
 									<div class="article-content col-md-6 col-sm-12 w-100 small">
-										<article>	<?= $image->excerpts ?></article>
+										<?= anchor("user/view_article/{$image->post_id}",$image->excerpts) ?>
 									</div>
 								</div>
-							</a></li>
+							</li>
 							<?php endforeach;?>
 						</ul>
 					</div>
@@ -115,16 +115,16 @@
 						<hr>
 						<ul class="list-group">
 							<?php foreach($campus_posts as $image): ?>
-							<li class="list-group-item"><a href="#">
+							<li class="list-group-item">
 								<div class="row">
 									<div class="articles col-md-6 col-sm-12">
 										<img src="<?= $image->img_path ?>" alt="" class="img-fluid feed-img ">
 									</div>
 									<div class="article-content col-md-6 col-sm-12 w-100 small">
-										<article>	<?= $image->excerpts ?></article>
+										<?= anchor("user/view_article/{$image->post_id}",$image->excerpts) ?>
 									</div>
 								</div>
-							</a></li>
+							</li>
 							<?php endforeach;?>
 						</ul>
 					</div>
@@ -133,16 +133,16 @@
 						<hr>
 						<ul class="list-group">
 							<?php foreach($views_posts as $image): ?>
-							<li class="list-group-item"><a href="#">
+							<li class="list-group-item">
 								<div class="row">
 									<div class="articles col-md-6 col-sm-12">
 										<img src="<?= $image->img_path ?>" alt="" class="img-fluid feed-img">
 									</div>
 									<div class="article-content col-md-6 col-sm-12 w-100 small">
-										<article>	<?= $image->excerpts ?></article>
+										<?= anchor("user/view_article/{$image->post_id}",$image->excerpts) ?>
 									</div>
 								</div>
-							</a></li>
+							</li>
 							<?php endforeach;?>
 						</ul>
 					</div>
@@ -239,32 +239,32 @@
 								<div id="latestposts">
 									<ul class="list-group">
 										<?php foreach($latest_posts as $image): ?>
-											<li class="list-group-item"><a href="#">
+											<li class="list-group-item">
 												<div class="row">
 													<div class="articles col-md-6 col-sm-12">
 														<img src="<?= $image->img_path ?>" alt="" class="img-fluid latestbar-img">
 													</div>
 													<div class="article-content col-md-6 col-sm-12 w-100 small">
-														<article>	<?= $image->excerpts ?></article>
+														<?= anchor("user/view_article/{$image->post_id}",$image->excerpts) ?>
 													</div>
 												</div>
-											</a></li>
+											</li>
 										<?php endforeach;?>
 									</ul>
 								</div>
 								<div id="comments">
 									<ul class="list-group">
 										<?php foreach($comment_posts as $image): ?>
-											<li class="list-group-item"><a href="#">
+											<li class="list-group-item">
 												<div class="row">
 													<div class="articles col-md-6 col-sm-6">
 														<img src="<?= $image->img_path ?>" alt="" class="img-fluid latestbar-img">
 													</div>
 													<div class="article-content col-md-6 col-sm-6 w-100 small">
-														<article>	<?= $image->excerpts ?></article>
+														<?= anchor("user/view_article/{$image->post_id}",$image->excerpts) ?>
 													</div>
 												</div>
-											</a></li>
+											</li>
 										<?php endforeach;?>
 									</ul>
 								</div>

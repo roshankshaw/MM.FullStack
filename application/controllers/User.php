@@ -3,7 +3,10 @@
 class User extends CI_Controller{
 	public function __construct(){
 		parent::__construct();
+		//LOADING MODELS FOR HOMEPAGE AND ARTICLES_DETAIL page
 		$this->load->model('homemodel','home');
+		$this->load->model('postviewmodel','post');
+		$this->load->model('commentmodel','comment');
 	}
 
 	public function index(){
@@ -45,7 +48,48 @@ class User extends CI_Controller{
 
 	}
 
- }
 
+	// *********************FOR THE ARTICLE_PAGE************************
+
+	public function view_article($post_id){
+		$article=$this->post->find_article($post_id);
+		$id=$this->session->userdata('user_id');
+		$role=$this->session->userdata('role');		
+		$related_posts=$this->post->related_posts();
+		$recent_posts=$this->post->recent_posts();
+		$post_comments=$this->comment->show_comment($post_id);
+		$post_replies=$this->comment->show_all_replies($post_id);
+		$data=[
+				'id'=>$id,
+				'role'=>$role,
+				'post_id'=>$post_id,
+				'article'=>$article,
+				'related_posts'=>$related_posts,
+				'recent_posts'=>$recent_posts,
+				'comments'=>$post_comments,
+				'replies'=>$post_replies,
+		];
+
+		$this->load->view('public/article_page',$data);
+	}
+	public function get_comment(){
+		if($this->form_validation->run('comment_rules')){
+			$post_id=$this->input->post('post_id');
+			$post=$this->input->post();
+			unset($post['submit']);
+			$this->comment->add_comment($post);
+			return	redirect("user/view_article/$post_id");
+		}
+	}
+	public function get_reply($com_id){
+		$post_id=$this->input->post('post_id');
+		$post=$this->input->post();
+		$post['comment_id']=$com_id;
+		unset($post['submit']);
+		$this->comment->add_reply($post);
+		return	redirect("user/view_article/$post_id");
+	}
+
+}
 
 

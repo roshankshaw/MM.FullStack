@@ -18,7 +18,7 @@ class Articlesmodel extends CI_Model{
 	}
 	public function find_article($article_id)
 	{
-		$q= $this->db->select(['post_id','title','content','excerpts','img_path'])
+		$q= $this->db->select()
 						->where('post_id',$article_id)
 						->get('articles');
 		return $q->row();

@@ -55,5 +55,17 @@ $config= ['login_rules'=> [
 									'label' => 'Excerpts',
 									'rules' => 'required|trim'
 		  						],
+		  						[
+		  							'field' => 'category',
+									'label' => 'category',
+									'rules' => 'required'
+		  						]
+		  					],
+		  					'comment_rules'=>[
+		  						[
+		  							'field' => 'comment_body',
+									'label' => 'Comment_body',
+									'rules' => 'required|trim'
+		  						],
 		  					]
 		  				];

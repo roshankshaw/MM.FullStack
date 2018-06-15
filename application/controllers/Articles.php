@@ -39,14 +39,15 @@ class Articles extends MY_Controller{
 		$articles= $this->articles->articles_list_browse($config['per_page'],$this->uri->segment(3));
 		// PAGINATION DONE
 		$usrname=$this->session->userdata('dname');
-		$this->load->view('admin/browse_post.php',['dname'=>$usrname,'articles'=>$articles]);
+		$this->load->view('admin/browse_post.php',['dname'=>$usrname,'articles'=>$articles,'departments'=>$this->get_dpt_array(),'category'=>$this->category_array()]);
 	}
 
 
 
 	public function add_article(){
 		$usrname=$this->session->userdata('dname');
-		$this->load->view('admin/add_article.php',['dname'=>$usrname]);
+		// DEPARTMENTS array defined in get_dpt_array() function
+		$this->load->view('admin/add_article.php',['dname'=>$usrname,'departments'=>$this->get_dpt_array()]);
 	}
  
 	public function store_article(){
@@ -63,17 +64,19 @@ class Articles extends MY_Controller{
 
 			$post=$this->input->post();
 			unset($post['submit']);
+
 			$data=$this->upload->data();
 			$img_path=base_URL("uploads/".$data['raw_name'].$data['file_ext']);
 			$post['img_path']=$img_path;
-			
+
 			//CHECKING SUCCESSFUL INPUT OF QUERY IN DB VIA FUNCTION FLASHANDREDIRECT()
 			$this->flashAndRedirect($this->articles->add($post),'added','add');
 		}
 		else{
 			$usrname=$this->session->userdata('dname');
 			$upload_error=$this->upload->display_errors();
-			$this->load->view('admin/add_article.php',['dname'=>$usrname,'upload_error'=>$upload_error]);
+			// DEPARTMENTS array defined in get_dpt_array() function
+			$this->load->view('admin/add_article.php',['dname'=>$usrname,'upload_error'=>$upload_error,'departments'=>$this->get_dpt_array()]);
 
 		}
 		
@@ -83,9 +86,10 @@ class Articles extends MY_Controller{
 	public function edit_article($id){
 		$usrname=$this->session->userdata('dname');
 		$article=$this->articles->find_article($id);
-		$this->load->view('admin/edit_article',['dname'=>$usrname,'article'=>$article]);
+		// DEPARTMENTS array defined in get_dpt_array() function
+		$this->load->view('admin/edit_article',['dname'=>$usrname,'article'=>$article,'departments'=>$this->get_dpt_array()]);
 	}
-
+ 
 
 
 	
@@ -114,7 +118,7 @@ class Articles extends MY_Controller{
 			$usrname=$this->session->userdata('dname');
 			$article=$this->articles->find_article($article_id);
 			$upload_error=$this->upload->display_errors();
-			$this->load->view('admin/edit_article',['dname'=>$usrname,'article'=>$article,'upload_error'=>$upload_error]);
+			$this->load->view('admin/edit_article',['dname'=>$usrname,'article'=>$article,'upload_error'=>$upload_error,'departments'=>$this->get_dpt_array()]);
 		}
 	}
 
@@ -167,7 +171,7 @@ class Articles extends MY_Controller{
 		// PAGINATION DONE
 		$q = $this->articles->search_article( $query,$config['per_page'],$this->uri->segment(4));
 		$usrname=$this->session->userdata('dname');
-		$this->load->view('admin/search_results',['dname'=>$usrname,'articles'=>$q]);
+		$this->load->view('admin/search_results',['dname'=>$usrname,'articles'=>$q,'departments'=>$this->get_dpt_array()]);
 	}
 	
 
@@ -185,6 +189,42 @@ class Articles extends MY_Controller{
 		return redirect('articles/browse_post');
 	}
 
- 	
+ 	private function get_dpt_array(){
+ 		$departments=[
+			'bm'=>'Biotechnology and biomedical engineering',
+			'cr'=>'Ceramic Engineering',
+			'ch'=>'Chemical Engineering',
+			'ce'=>'Civil Engineering',
+			'cs'=>'Computer Science and Engineering',
+			'cy'=>'Department of Chemistry',
+			'hs'=>'Department of Humanities',
+			'ls'=>'Department of Life Science',
+			'ma'=>'Department of Mathematics',
+			'py'=>'Department of Physics',
+			'ee'=>'Electrical Engineering',
+			'ece'=>'Electronics and Communication Engineering',
+			'fp'=>'Food Process Engineering',
+			'id'=>'Industrial Design',
+			'me'=>'Mechanical Engineering',
+			'mm'=>'Metallurgical and Materials Engineering',
+			'mn'=>'Mining Engineering',
+			'ar'=>'Planning and Architecture',
+			'mg'=>'School of Management',
+			'ea'=>'Department of Earth and Atmospheric Sciences',
+		];
+		return $departments;
+ 	}
 
+ 	private function category_array(){
+ 		$category=[
+ 			'cam'=>'Campus',
+ 			'dpt'=>'Departments',
+ 			'car'=>'Career',
+ 			'vws'=>'Views',
+ 			'ddc'=>'DD&CWC',
+ 			'alm'=>'ALumni',
+			'Not Assigned'=>'Not Assigned'
+		];
+		return $category;
+ 	}
  }

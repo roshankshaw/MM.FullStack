@@ -64,9 +64,9 @@
 														
 						<?php echo form_submit(['name'=>'submit','value'=>'Submit','class'=>'btn btn-primary pull-right'])?>
 					</fieldset>
-				<?php form_close(); ?>
 			</div>
-			
+
+
 			<!-- SIDEBAR SECTION -->
 			<div class="col-md-4 col-sm-12">
 				<div class="panel-group" >
@@ -81,8 +81,7 @@
 						</div>
 						<div id="collapse1" class="panel-collapse collapse">
 							<div class="panel-body">
-								<form action="">
-									<div class="form-group">
+<!-- 									<div class="form-group">
 										<label for="exampleSelect1">Example select</label>
 										<select class="form-control" id="exampleSelect1">
 											<option>1</option>
@@ -117,7 +116,7 @@
 										</div>
 									</fieldset>	
 									<button type="submit" class="btn btn-primary">Submit</button>
-								</form>
+								</form> -->
 							</div>
 						</div>
 					</div>
@@ -126,13 +125,12 @@
 					<div class="panel panel-default">
 						<div class="panel-heading">
 							<h4 class="panel-title">
-								<a data-toggle="collapse" data-parent="#accordion" href="#collapse2">
-								Authors</a>
+								<a data-toggle="collapse" data-parent="#accordion" href="#collapse2">Authors</a>
 							</h4>
 						</div>
 						<div id="collapse2" class="panel-collapse collapse">
 							<div class="panel-body">
-								<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+								<!-- <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email"> -->
 							</div>
 						</div>
 					</div>
@@ -141,31 +139,67 @@
 					<div class="panel panel-default">
 						<div class="panel-heading">
 							<h4 class="panel-title">
-								<a data-toggle="collapse" data-parent="#accordion" href="#collapse3">
-								Category</a>
+								<a data-toggle="collapse" data-parent="#accordion" href="#collapse3">Category</a>
 							</h4>
 						</div>
-						<div id="collapse3" class="panel-collapse collapse">
+						<div id="collapse3" class="panel-collapse collapse in">
 							<div class="panel-body">
 								<fieldset class="form-group">
-									<legend>Checkboxes</legend>
-									<div class="form-check">
-									<label class="form-check-label">
-										<input class="form-check-input" type="checkbox" value="" checked="">
-										Option one is this and that—be sure to include why it's great
-									</label>
+									<?php echo form_error('category')?>
+			                    	<div class="form-check">
+										<label class="form-check-label">
+											<input class="form-check-input" name="category" type="checkbox" value="dpt" <?php echo set_checkbox('category','dpt',$article->category=='dpt') ?>>
+												<a href="#departments" data-toggle="collapse" aria-expanded="false">Departments</a>
+										</label>
 									</div>
-									<div class="form-check disabled">
-									<label class="form-check-label">
-										<input class="form-check-input" type="checkbox" value="" disabled="">
-										Option two is disabled
-									</label>
+									<ul class="collapse panel-collapse list-unstyled col-md-offset-1" id="departments">
+										<?php foreach($departments as $value=>$name):?>
+										<li>
+											<div class="form-check">
+												<label class="form-check-label small">
+													<input class="form-check-input" name="sub_category" type="checkbox" value="<?=$value?>" <?php echo set_checkbox('sub_category',$value,$article->sub_category==$value)?>>
+													<?=$name?>
+												</label>
+											</div>
+										</li>
+										<?php endforeach;?>
+									</ul>
+
+			                    	<div class="form-check">
+										<label class="form-check-label" >
+											<input class="form-check-input" name="category" type="checkbox" value="cam" <?php echo set_checkbox('category','cam',$article->category=='cam')?>>
+												Campus
+										</label>
+									</div>
+			                    	<div class="form-check">
+										<label class="form-check-label">
+											<input class="form-check-input" name="category" type="checkbox" value="vws" <?php echo set_checkbox('category','vws',$article->category=='vws')?>>
+												Views
+										</label>
+									</div>
+			                    	<div class="form-check">
+										<label class="form-check-label">
+											<input class="form-check-input" name="category" type="checkbox" value="car" <?php echo set_checkbox('category','car',$article->category=='car')?>>
+												Career
+										</label>
+									</div>
+			                    	<div class="form-check">
+										<label class="form-check-label">
+											<input class="form-check-input" name="category" type="checkbox" value="ddc" <?php echo set_checkbox('category','ddc',$article->category=='ddc')?>>
+												DD&CWC
+										</label>
+									</div>
+			                    	<div class="form-check">
+										<label class="form-check-label">
+											<input class="form-check-input" name="category" type="checkbox" value="alm" <?php echo set_checkbox('category','alm',$article->category=='alm')?>>
+												Alumni
+										</label>
 									</div>
 								</fieldset>
+
 							</div>
 						</div>
 					</div>
-
 
 					<!-- MEDIA FORM -->
 					<div class="panel panel-default">
@@ -177,21 +211,22 @@
 						</div>
 						<div id="collapse4" class="panel-collapse collapse">
 							<div class="panel-body">
-								<div class="form-group">
+<!-- 								<div class="form-group">
 									<label for="exampleInputFile">Image input</label>
 									<input type="file" class="form-control-file" id="exampleInputFile" accept="images/*" aria-describedby="fileHelp">
 									<small id="fileHelp" class="form-text text-muted">This is some placeholder block-level help text for the above input. It's a bit lighter and easily wraps to a new line.</small>
-								</div>
+								</div> -->
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-
+			<?php echo form_close(); ?>
 
 			</div>
 		</div>
 	</div>
+</div>
 
 
 

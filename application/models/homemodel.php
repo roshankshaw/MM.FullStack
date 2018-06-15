@@ -32,6 +32,7 @@ class Homemodel extends CI_Model{
 					->from('articles')
 					->select(['title','img_path','excerpts','post_id'])
 					->order_by('created_at','desc')
+					->where('category','dpt')
 					->limit(4)
 					->get();
 		return $q->result();
@@ -40,6 +41,7 @@ class Homemodel extends CI_Model{
 		$q=$this->db
 					->from('articles')
 					->select(['title','img_path','excerpts','post_id'])
+					->where('category','car')
 					->order_by('created_at','desc')
 					->limit(4)
 					->get();
@@ -49,6 +51,7 @@ class Homemodel extends CI_Model{
 		$q=$this->db
 					->from('articles')
 					->select(['title','img_path','excerpts','post_id'])
+					->where('category','cam')
 					->order_by('created_at','desc')
 					->limit(4)
 					->get();
@@ -59,6 +62,7 @@ class Homemodel extends CI_Model{
 		$q=$this->db
 					->from('articles')
 					->select(['title','img_path','excerpts','post_id'])
+					->where('category','vws')
 					->order_by('created_at','desc')
 					->limit(4)
 					->get();
@@ -74,13 +78,13 @@ class Homemodel extends CI_Model{
 		return $q->result();
 	}
 	public function comment_posts(){
-		$q=$this->db
-					->from('articles')
-					->select(['title','img_path','excerpts','post_id'])
-					->order_by('created_at','desc')
-					->limit(4)
-					->get();
-		return $q->result();
+		// $q=$this->db
+		// 			->from('articles')
+		// 			->select(['title','img_path','excerpts','post_id'])
+		// 			->order_by('created_at','desc')
+		// 			->limit(4)
+		// 			->get();
+		// return $q->result();
 	}
 	public function editor_pick1(){
 		$q=$this->db
@@ -100,4 +104,7 @@ class Homemodel extends CI_Model{
 					->get();
 		return $q->result();
 	}
+	
+	
+	
 }

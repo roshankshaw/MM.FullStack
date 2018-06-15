@@ -25,4 +25,10 @@
 	color:gray;
 	font-style: italic;
 }
+@media screen and (min-width:768px){
+	.rel_image{
+		height:155px;
+		width:100%;
+	}
+}
 /*CONTENT OF THE WEBSITE ENDS*/
