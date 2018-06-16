@@ -72,7 +72,7 @@ class User extends CI_Controller{
 
 		$this->load->view('public/article_page',$data);
 	}
-	// comment section
+	// *********************FOR THE ARTICLE_PAGE COMMENT AND REPIES ***********************
 	public function get_comment(){
 		if($this->form_validation->run('comment_rules')){
 			$post_id=$this->input->post('post_id');
@@ -90,6 +90,7 @@ class User extends CI_Controller{
 		$this->comment->add_reply($post);
 		return redirect("user/view_article/{$post_id}");
 	}
+	
 	public function delete_comment($com_id,$post_id){
 		$this->comment->delete_comment($com_id);
 		return redirect("user/view_article/{$post_id}");
@@ -98,6 +99,43 @@ class User extends CI_Controller{
 		$this->comment->delete_reply($rep_id);
 		return redirect("user/view_article/{$post_id}");
 
+	}
+	
+	public function edit_comment($com_id,$post_id)
+	{
+		$id=$this->session->userdata('user_id');
+		$role=$this->session->userdata('role');	
+		$q=$this->comment->find_comment($com_id);
+		$this->load->view('public/edit_comment',['comment'=>$q,'id'=>$id,'role'=>$role]);
+	}
+	public function update_comment()
+	{
+		if($this->form_validation->run('comment_rules')){
+			$post_id=$this->input->post('post_id');
+			$post=$this->input->post();
+			$com_id=$this->input->post('comment_id');
+			unset($post['submit']);
+			$this->comment->update_comment($post,$com_id);
+			return redirect("user/view_article/{$post_id}");
+		}	
+	}
+
+
+	public function edit_reply($rep_id,$post_id)
+	{
+		$id=$this->session->userdata('user_id');
+		$role=$this->session->userdata('role');	
+		$q=$this->comment->find_reply($rep_id);
+		$this->load->view('public/edit_reply',['reply'=>$q,'id'=>$id,'role'=>$role]);
+	}
+	public function update_reply()
+	{
+			$post_id=$this->input->post('post_id');
+			$post=$this->input->post();
+			$rep_id=$this->input->post('reply_id');
+			unset($post['submit']);
+			$this->comment->update_reply($post,$rep_id);
+			return redirect("user/view_article/{$post_id}");
 	}
 
 }

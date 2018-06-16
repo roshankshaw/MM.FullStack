@@ -30,6 +30,33 @@ class Commentmodel extends CI_Model{
 	public function delete_reply($rep_id){
 		return $this->db->delete('reply',['reply_id'=>$rep_id]);
 	}
+	public function find_comment($com_id)
+	{
+		$q=$this->db
+					->from('comments')
+					->select()
+					->where('comment_id',$com_id)
+					->get();
+		return $q->row();
+	}
+	public function update_comment($query,$com_id)
+	{
+		return $this->db->where('comment_id',$com_id)->update('comments',$query);
+	}
+	public function find_reply($rep_id)
+	{
+		$q=$this->db
+					->from('reply')
+					->select()
+					->where('reply_id',$rep_id)
+					->get();
+		return $q->row();
+	}
+	public function update_reply($query,$rep_id)
+	{
+		return $this->db->where('reply_id',$rep_id)->update('reply',$query);
+	}
+
 
 }
 

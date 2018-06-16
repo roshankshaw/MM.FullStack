@@ -54,7 +54,7 @@
 							<h5>Comments</h5>
 						</div>
 						<div class="card-body">
-							<!-- BEGIUN COMMENT SECTION VIEW-->
+							<!-- BEGIN COMMENT SECTION VIEW-->
 							<?php if(count($comments)): ?>
 								<?php foreach($comments as $comment): ?>
 								<div class="panel panel-default">
@@ -68,8 +68,8 @@
 												<p class="card-text"><?= $comment->comment_body ?></p>
 												<a class="card-link" style data-toggle="collapse" class="text-default small" data-parent="#accordion" href="#collapse<?=$comment->comment_id?>">Reply</a>
 												<?php if(($id)==($comment->author_id)):?>
-													<a href="#" class="card-link">Edit</a>
-													<a href='<?=base_URL("index.php/user/delete_comment/{$comment->comment_id}/{$comment->post_id}")?>' class="card-link">Delete</a>
+													<a href='<?=base_URL("index.php/user/comment/{$comment->comment_id}/{$comment->post_id}")?>' class="card-link">Edit</a>
+													<a href='<?=base_URL("index.php/user/delete_comment/{$comment->comment_id}/{$comment->post_id}")?>' class="card-link" onclick= "return( confirm('Are you sure you want to delete this record?');")>Delete</a>
 												<?php endif;?>
 											</div>
 										</div>
@@ -87,8 +87,8 @@
 														</div>
 														<p class="card-text"><?= $reply->reply_body ?></p>
 														<?php if(($reply->author_id)==($id)):?>
-															<a href="#" class="card-link">Edit</a>
-															<a href='<?=base_URL("index.php/user/delete_reply/{$reply->reply_id}/{$reply->post_id}")?>' class="card-link">Delete</a>
+															<a href='<?=base_URL("index.php/user/edit_reply/{$reply->reply_id}/{$reply->post_id}")?>' class="card-link">Edit</a>
+															<a href='<?=base_URL("index.php/user/delete_reply/{$reply->reply_id}/{$reply->post_id}")?>' class="card-link" onclick= return confirm("Are you sure you want to delete this record?")))>Delete</a>
 														<?php endif;?>
 													</div>
 												<?php endif;?>

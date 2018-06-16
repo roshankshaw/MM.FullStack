@@ -31,7 +31,7 @@
 #latestpost{
 	border: 0px solid white;
 }
-.card-header .btn-group{
+.card-header {
 	display: flex;
 	flex-wrap: nowrap; 
 	justify-content: center;
