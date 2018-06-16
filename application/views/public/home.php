@@ -108,7 +108,7 @@
 				</div>
 				<hr>
 			<!-- End DEPARTMENT AND CAREER Section -->
-			 <!-- Begin Campus and views -->
+			<!-- Begin Campus and views -->
 			 <div class="row">   
 					<div class="section-post col-md-6 col-sm-12">   
 						<h4>Campus</h4>
@@ -229,10 +229,10 @@
 				<div class="row">
 					<div class="col-md-12 col-sm-12">
 						<div class="card Sidebar w-100">
-							<div class="card-header">
-								<div class="btn-grou btn-group-lg">
-								  	<button type="button" class="btn btn-primary" onclick="clickLpost()" id="lposts">Latest posts</button>
-								  	<button type="button" class="btn btn-outline-primary" onclick="clickComment()" id="comment">Comments</button>
+							<div class="card-header d-flex flex-row">
+								<div class="btn-group btn-group center">
+								  	<button type="button" class="btn btn-primary feed-btno" onclick="clickLpost()" id="lposts">Latest posts</button>
+								  	<button type="button" class="btn btn-outline-primary feed-btno" onclick="clickComment()" id="comment">Comments</button>
 								</div>
 							</div>
 							<div class="card-body">
@@ -338,8 +338,12 @@
 					  	</div>
 					  	<div class="carousel-item">
 	       					<div class="col-md-12 col-sm-12 col-sm-12"><img class="img-fluid" src="<?= $editor_pick1[1]->img_path ?>" alt="2 slide"></div>
+					  	</div>
+					  	<div class="carousel-item">
 	       					<div class="col-md-12 col-sm-12 col-sm-12"><img class="img-fluid" src="<?= $editor_pick1[2]->img_path ?>" alt="3 slide"></div>
-	       					<div class="col-md-12 col-sm-12 col-sm-12"><img class="img-fluid" src="<?= $editor_pick1[3]->img_path ?>" alt="4 slide"></div>
+					  	</div>
+					  	<div class="carousel-item">
+	       					<div class="col-md-12 col-sm-12 col-sm-12"><img class="img-fluid" src="<?= $editor_pick1[2]->img_path ?>" alt="3 slide"></div>
 					  	</div>
 					</div>
 

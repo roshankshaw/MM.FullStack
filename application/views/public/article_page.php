@@ -49,42 +49,57 @@
 				<br><br>
 				<!-- BEGIN COMMENTS -->
 				<div class="row">
-					<div class="card w-100 comment">
+					<div class="card w-100 ">
 						<div class="card-header">
 							<h5>Comments</h5>
 						</div>
-						<div class="card-body comment">
+						<div class="card-body">
 							<!-- BEGIUN COMMENT SECTION VIEW-->
 							<?php if(count($comments)): ?>
 								<?php foreach($comments as $comment): ?>
 								<div class="panel panel-default">
 									<div class="panel-heading comment">
-										<div class="card">
-											<div class="card-body">
-												<h4 class="card-title"><?= $comment->author_name ?></h4>
+										<div class="card comment">
+											<div class="card-body comment">
+												<div class="card-title">
+													<h5><?= $comment->author_name ?></h5>
+													<small class="text-muted"><?=date('d M Y',strtotime($comment->created_at)) ?></small>
+												</div>
 												<p class="card-text"><?= $comment->comment_body ?></p>
 												<a class="card-link" style data-toggle="collapse" class="text-default small" data-parent="#accordion" href="#collapse<?=$comment->comment_id?>">Reply</a>
-												<a href="#" class="card-link">Edit</a>
-												<a href="#" class="card-link">Delete</a>
+												<?php if(($id)==($comment->author_id)):?>
+													<a href="#" class="card-link">Edit</a>
+													<a href='<?=base_URL("index.php/user/delete_comment/{$comment->comment_id}/{$comment->post_id}")?>' class="card-link">Delete</a>
+												<?php endif;?>
 											</div>
 										</div>
 									</div>
 									<!-- BEGIN REPLY SECTION PANEL -->
 									<div id="collapse<?=$comment->comment_id?>" class="panel-collapse collapse reply">
-										<div class="card comment small">
+										<div class="card reply small">
 										<?php if(count($replies)): ?>
 											<?php foreach($replies as $reply): ?>
 												<?php if(($reply->comment_id)==($comment->comment_id)):?>
 													<div class="card-body">
+														<div class="card-title">
+															<h5><?= $reply->author_name ?></h5>
+															<small class="text-muted"><?=date('d M Y',strtotime($reply->created_at)) ?></small>
+														</div>
 														<p class="card-text"><?= $reply->reply_body ?></p>
-														<a href="#" class="card-link">Edit</a>
-														<a href="#" class="card-link">Delete</a>
+														<?php if(($reply->author_id)==($id)):?>
+															<a href="#" class="card-link">Edit</a>
+															<a href='<?=base_URL("index.php/user/delete_reply/{$reply->reply_id}/{$reply->post_id}")?>' class="card-link">Delete</a>
+														<?php endif;?>
 													</div>
 												<?php endif;?>
 											<?php endforeach; ?>
 											<?php else:?>
-												<strong> No replies yet..</strong>
+												<div class="card-body small">
+														<strong> No replies yet..</strong>
+												</div>
 										<?php endif; ?>
+										<!-- END REPLYSECTION PANEL -->
+										<!-- BEGIN REPLY FORM -->
 											<?php if(!$id): ?>
 												<div class="card-body">
 													<span>
@@ -104,10 +119,10 @@
 																<table>
 																	<thead>
 																		<th>
-																			<?php echo form_textarea(['name'=>'reply_body','class'=>'form-control', 'placeholder'=>'post a reply','rows'=>'2','required'=>'','value'=>set_value('reply_body')])?>
+																			<?php echo form_textarea(['name'=>'reply_body','class'=>'form-control', 'placeholder'=>'post a reply','rows'=>'2','required'=>'','value'=>set_value('')])?>
 																		</th>
 																		<th>
-																			<?php echo form_submit(['name'=>'submit','value'=>'post','class'=>'btn btn-primary float-right'])?>
+																			<?php echo form_submit(['name'=>'submit','value'=>'Reply','class'=>'btn btn-primary float-right'])?>
 																		</th>
 																	</thead>
 																</table>
@@ -117,6 +132,7 @@
 													</div>
 												</div>
 											<?php endif; ?>
+											<!-- END REPLY FORM -->
 										</div>
 									</div>
 								</div>
@@ -129,11 +145,11 @@
 				</div>
 				<!-- END COMMENTS -->
 				<br><br>
-				<!-- BEGIN LEAVE A REPLY -->
+				<!-- BEGIN LEAVE A COMMENT-->
 				<div class="row">
 					<div class="card w-100">
 						<div class="card-header">
-							<h5>Leave a Reply</h5>
+							<h5>Leave a Comment</h5>
 						</div>
 						<?php if(!$id): ?>
 							<div class="card-body">
@@ -154,10 +170,10 @@
 													<table>
 														<thead>
 															<th>
-																<?php echo form_textarea(['name'=>'comment_body','class'=>'form-control', 'placeholder'=>'post a comment','rows'=>'2','required'=>'','value'=>set_value('comment_body')])?>
+																<?php echo form_textarea(['name'=>'comment_body','class'=>'form-control', 'placeholder'=>'post a comment','rows'=>'2','required'=>'','value'=>set_value('')])?>
 															</th>
 															<th>
-														<?php echo form_submit(['name'=>'submit','value'=>'post','class'=>'btn btn-primary float-right'])?>
+														<?php echo form_submit(['name'=>'submit','value'=>'Comment','class'=>'btn btn-primary float-right'])?>
 															</th>
 														</thead>
 													</table>

@@ -12,6 +12,9 @@ class Commentmodel extends CI_Model{
 					->get();
 		return $q->result();
 	}
+	public function delete_comment($com_id){
+		return $this->db->delete('comments',['comment_id'=>$com_id]);
+	}
 	public function add_reply($post){
 		$q=$this->db->insert('reply',$post);
 	}
@@ -23,6 +26,9 @@ class Commentmodel extends CI_Model{
 					->where('post_id',$post_id)
 					->get();
 		return $q->result();
+	}
+	public function delete_reply($rep_id){
+		return $this->db->delete('reply',['reply_id'=>$rep_id]);
 	}
 
 }

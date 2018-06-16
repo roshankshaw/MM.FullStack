@@ -17,7 +17,16 @@
 .post-feed li a{
 	color:black;
 }
-
+.comment{
+	border-bottom: 0.5px solid gray;
+	background-color: rgba(203,239,252,0.1);
+}
+.reply{
+	background-color: rgba(203,239,252,0.1);
+}
+.comment .card-title{
+		font-weight: bold;
+}
 .article-body-p{
 	padding: 20px;
 }

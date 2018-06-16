@@ -72,13 +72,14 @@ class User extends CI_Controller{
 
 		$this->load->view('public/article_page',$data);
 	}
+	// comment section
 	public function get_comment(){
 		if($this->form_validation->run('comment_rules')){
 			$post_id=$this->input->post('post_id');
 			$post=$this->input->post();
 			unset($post['submit']);
 			$this->comment->add_comment($post);
-			return	redirect("user/view_article/$post_id");
+			return redirect("user/view_article/{$post_id}");
 		}
 	}
 	public function get_reply($com_id){
@@ -87,7 +88,16 @@ class User extends CI_Controller{
 		$post['comment_id']=$com_id;
 		unset($post['submit']);
 		$this->comment->add_reply($post);
-		return	redirect("user/view_article/$post_id");
+		return redirect("user/view_article/{$post_id}");
+	}
+	public function delete_comment($com_id,$post_id){
+		$this->comment->delete_comment($com_id);
+		return redirect("user/view_article/{$post_id}");
+	}
+	public function delete_reply($rep_id,$post_id){
+		$this->comment->delete_reply($rep_id);
+		return redirect("user/view_article/{$post_id}");
+
 	}
 
 }
