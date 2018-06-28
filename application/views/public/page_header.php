@@ -143,7 +143,7 @@
 							<li><a class="dropdownitem" href="#">Citizen Journalist</a>
 							</li>
 							<li><a class="dropdownitem" href="#">Forum</a></li>
-							<li><a class="dropdownitem" href="#">Ask a Question</a></li>
+							<li><a class="dropdownitem" href="<?=base_URL('index.php/aaq')?>">Ask a Question</a></li>
 						</ul>
 					</div>
 				</li>

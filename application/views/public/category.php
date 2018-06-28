@@ -7,89 +7,40 @@
 			<div class="col-md-8 col-sm-12 category-section-view">
 				<!-- BEGIN CATEGORY SECTION -->
 				<div class="row">
-					<div class="card w-100">
+					<div class="card w-100 col-md-12">
 						<div class="card-header">
-							<h3>CATEGORY NAME</h3>
+							<h3><?=$type[$category[0]->category]?></h3>
 						</div>
 					</div>
 				</div>
 				<br>
 				<div class="row">
-					<div class="card">
-						<img src="../images/article3.jpg" alt="" class="img-fluid">
-						<br>
-						<div class="article-body">
-							<h3>Title of the article</h3>
-							<span class="post-tags"><button class="btn btn-success">tag1</button>
-							<button class="btn btn-primary">tag2</button></span>
-							<br>
-							<span class="post-details small"><strong> <a href="#">Date</a> | <a href="#">Admin name</a> | <a href="#">Leave a Comment</a></strong></span>
-							<br><br>
-							<article>
-								Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque autem nam a consequatur blanditiis, veritatis, ex velit aut. Harum eveniet voluptatum assumenda praesentium unde accusantium magnam iusto. Quam ad ipsum nostrum possimus illo, velit numquam ullam laboriosam cum accusamus animi ipsa alias, hic similique. Modi inventore saepe fuga minus sunt aperiam repudiandae, hic quos eaque itaque molestias dolore tenetur odio ullam debitis. Ut adipisci velit blanditiis doloremque molestias in voluptatibus delectus inventore, mollitia accusamus dolorum, officiis quibusdam porro at cupiditate nisi sint. Odio est unde omnis nemo impedit earum, incidunt, totam sed voluptas eos enim pariatur et laboriosam molestiae reiciendis.
-							</article>
-							<div class="text-right small"><a href="#">Read more..</a></div>
-						</div>
-					</div>
-					<br>
-					<div class="card">
-						<img src="../images/article3.jpg" alt="" class="img-fluid">
-						<br>
-						<div class="article-body">
-							<h3>Title of the article</h3>
-							<span class="post-tags"><button class="btn btn-success">tag1</button>
-							<button class="btn btn-primary">tag2</button></span>
-							<br>
-							<span class="post-details small"><strong> <a href="#">Date</a> | <a href="#">Admin name</a> | <a href="#">Leave a Comment</a></strong></span>
-							<br><br>
-							<article>
-								Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque autem nam a consequatur blanditiis, veritatis, ex velit aut. Harum eveniet voluptatum assumenda praesentium unde accusantium magnam iusto. Quam ad ipsum nostrum possimus illo, velit numquam ullam laboriosam cum accusamus animi ipsa alias, hic similique. Modi inventore saepe fuga minus sunt aperiam repudiandae, hic quos eaque itaque molestias dolore tenetur odio ullam debitis. Ut adipisci velit blanditiis doloremque molestias in voluptatibus delectus inventore, mollitia accusamus dolorum, officiis quibusdam porro at cupiditate nisi sint. Odio est unde omnis nemo impedit earum, incidunt, totam sed voluptas eos enim pariatur et laboriosam molestiae reiciendis.
-							</article>
-							<div class="text-right small"><a href="#">Read more..</a></div>
-						</div>
-					</div>
-					<br>
-					<div class="card">
-						<img src="../images/article3.jpg" alt="" class="img-fluid">
-						<br>
-						<div class="article-body">
-							<h3>Title of the article</h3>
-							<span class="post-tags"><button class="btn btn-success">tag1</button>
-							<button class="btn btn-primary">tag2</button></span>
-							<br>
-							<span class="post-details small"><strong> <a href="#">Date</a> | <a href="#">Admin name</a> | <a href="#">Leave a Comment</a></strong></span>
-							<br><br>
-							<article>
-								Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque autem nam a consequatur blanditiis, veritatis, ex velit aut. Harum eveniet voluptatum assumenda praesentium unde accusantium magnam iusto. Quam ad ipsum nostrum possimus illo, velit numquam ullam laboriosam cum accusamus animi ipsa alias, hic similique. Modi inventore saepe fuga minus sunt aperiam repudiandae, hic quos eaque itaque molestias dolore tenetur odio ullam debitis. Ut adipisci velit blanditiis doloremque molestias in voluptatibus delectus inventore, mollitia accusamus dolorum, officiis quibusdam porro at cupiditate nisi sint. Odio est unde omnis nemo impedit earum, incidunt, totam sed voluptas eos enim pariatur et laboriosam molestiae reiciendis.
-							</article>
-							<div class="text-right small"><a href="#">Read more..</a></div>
-						</div>
-					</div>
-					<br>
-					<div class="card">
-						<img src="../images/article3.jpg" alt="" class="img-fluid">
-						<br>
-						<div class="article-body">
-							<h3>Title of the article</h3>
-							<span class="post-tags"><button class="btn btn-success">tag1</button>
-							<button class="btn btn-primary">tag2</button></span>
-							<br>
-							<span class="post-details small"><strong> <a href="#">Date</a> | <a href="#">Admin name</a> | <a href="#">Leave a Comment</a></strong></span>
-							<br><br>
-							<article>
-								Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque autem nam a consequatur blanditiis, veritatis, ex velit aut. Harum eveniet voluptatum assumenda praesentium unde accusantium magnam iusto. Quam ad ipsum nostrum possimus illo, velit numquam ullam laboriosam cum accusamus animi ipsa alias, hic similique. Modi inventore saepe fuga minus sunt aperiam repudiandae, hic quos eaque itaque molestias dolore tenetur odio ullam debitis. Ut adipisci velit blanditiis doloremque molestias in voluptatibus delectus inventore, mollitia accusamus dolorum, officiis quibusdam porro at cupiditate nisi sint. Odio est unde omnis nemo impedit earum, incidunt, totam sed voluptas eos enim pariatur et laboriosam molestiae reiciendis.
-							</article>
-							<div class="text-right small"><a href="#">Read more..</a></div>
-						</div>
-					</div>
 
+					<div class="card col-md-12">
+						<?php foreach($category as $article):?>
+						<div class="card-body">
+							<img src="<?=$article->img_path?>" alt="" class="img-fluid">
+							<br>
+							<h3><?=$article->title?></h3>
+							<span class="post-tags"><button class="btn btn-success">tag1</button>
+							<button class="btn btn-primary">tag2</button></span>
+							<br>
+							<span class="post-details small"><strong> <a href="#"><?=date('d M Y',strtotime($article->created_at))?></a> | <a href="#">Admin name</a></strong></span>
+							<br><br>
+							<article>
+								<?=$article->excerpts?>
+							</article>
+							<div class="text-right small"><a href="<?=base_URL("index.php/user/view_article/{$article->post_id}")?>">Read more..</a></div>
+						</div>
+					<?php endforeach;?>
+					</div>
+					<br>
 				</div>
 				<!-- END CATEGORY SECTION -->
 				
 			</div>
 
-
-			<!-- BEGIN SIDEBAR SECTION -->
+	<!-- BEGIN SIDEBAR SECTION -->
 			<div class="col-md-4 col-sm-12 sidebar-section">
 				<!-- BEGIN SEARCH BOX -->
 				<div class="row">
@@ -118,10 +69,9 @@
 						</div>
 						<div class="card-body">
 							<ul class="post-feed">
-								<li><a href="">Art Exhibition Going To Start This Week</a></li>
-								<li><a href="">Grand Live Concert In Germany 2017</a></li>
-								<li><a href="">Fighter plane crash during world war</a></li>
-								<li><a href="">Tips to make cripsy food a helathy diet</a></li>
+								<?php foreach($recent_posts as $image): ?>
+								<li><a href=""><?=$image->title?></a></li>
+							<?php endforeach; ?>
 							</ul>
 						</div>
 					</div>
@@ -164,15 +114,15 @@
 						<div class="card-body">
 							<h6 >How was the performance of CSK this year?</h6>
 							<div class="progress">
-							  <div class="progress-bar" style="width:10%"></div>
+								<div class="progress-bar" style="width:10%"></div>
 							</div>
 							<br>
 							<div class="progress">
-							  <div class="progress-bar bg-success" style="width:20%"></div>
+								<div class="progress-bar bg-success" style="width:20%"></div>
 							</div>
 							<br>				
 							<div class="progress">
-							  <div class="progress-bar bg-info" style="width:30%"></div>
+								<div class="progress-bar bg-info" style="width:30%"></div>
 							</div>
 						</div>
 						<div class="card-footer">
@@ -188,9 +138,7 @@
 
 			</div>
 		</div>
-	<!-- END MAIN CONTENT SECTION -->
 	
-
-	<br>
-
+	<!-- END MAIN CONTENT SECTION -->
+	<br><br>
 <?php include('page_footer.php') ?>

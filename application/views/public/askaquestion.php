@@ -23,12 +23,14 @@
 								</td>
 							</tr>
 						</table><br>
+						<?php if($id):?>
 						<label for="usr"><strong>Ask a Question</strong></label>
 						<input type="text" class="form-control form-control" placeholder="Type your Question"/><br>
 						 <label for="usr"><strong>Authorities you want to ask to</strong></label>
 						 <input type="text" class="form-control form-control" placeholder="e.g dean,etc"/><br>
 						 <button class= "btn btn-secondary">Submit</button>
 						 <button class= "btn btn-secondary">View Previous Answers</button>
+						<?php endif;?>
 					</div>
 				</div>
 			</div>

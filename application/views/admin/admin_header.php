@@ -42,9 +42,9 @@
                     <li>
                         <a class="sidebara" href="#commentsSubmenu" data-toggle="collapse" aria-expanded="false">Comments</a>
                         <ul class="collapse list-unstyled" id="commentsSubmenu">
-                            <li><a href="#">All</a></li>
-                            <li><a href="#">Pending</a></li>
-                            <li><a href="#">Approved</a></li>
+                            <li><a href="<?= base_URL('index.php/comments/all_comments')?>">All</a></li>
+                            <li><a href="<?= base_URL('index.php/comments/pending_comments')?>">Pending</a></li>
+                            <li><a href="<?= base_URL('index.php/comments/approved_comments')?>">Approved</a></li>
                         </ul>
                     </li>
                     <!-- <li>
