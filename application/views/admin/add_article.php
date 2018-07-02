@@ -56,12 +56,33 @@
 						</div>
 							<?php echo form_error('excerpts')?>
 						
+
+						<script type="text/javascript">
+							var inputup=document.getElementById('uploaded');
+							function readURL(inputup){
+								if(inputup.files && inputup.files[0]){
+									var reader= new FileReader();
+									reader.onload= function(e){
+										var image=document.getElementById('uploaded');
+										image.src=e.target.result;
+									}
+									reader.readAsDataURL(inputup.files[0]);
+								}
+							}
+							
+						</script>
+						
 						<div class="form-group">
 							<label for="exampleInputFile">Upload an image:</label>
-					      	<?php echo form_upload(['name'=>'userfile','class'=>'form-control-file','aria-describedby'=>'fileHelp']) ?>
+					      	<?php echo form_upload(['name'=>'userfile','class'=>'form-control-file','aria-describedby'=>'fileHelp','id'=>
+					      	'uploaded']) ?>
 							<!-- If name is other than userfile then pass the name as a parameter in do_upload() function -->
 						</div>
-							<small style="  color:red;"><?php  if(isset($upload_error)) echo "* $upload_error";?></small>							
+						<div class="form-group">
+							<img src="" id="blah" alt="">
+						</div>
+							<small style="  color:red;"><?php  if(isset($upload_error)) echo "* $upload_error";?></small>					
+
 						<?php echo form_submit(['name'=>'submit','value'=>'Submit','class'=>'btn btn-primary pull-right'])?>
 					</fieldset>
 			</div>

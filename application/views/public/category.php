@@ -9,30 +9,38 @@
 				<div class="row">
 					<div class="card w-100 col-md-12">
 						<div class="card-header">
-							<h3><?=$type[$category[0]->category]?></h3>
+							<h3><?= $catname ?></h3>
 						</div>
 					</div>
 				</div>
 				<br>
 				<div class="row">
-
 					<div class="card col-md-12">
-						<?php foreach($category as $article):?>
-						<div class="card-body">
-							<img src="<?=$article->img_path?>" alt="" class="img-fluid">
-							<br>
-							<h3><?=$article->title?></h3>
-							<span class="post-tags"><button class="btn btn-success">tag1</button>
-							<button class="btn btn-primary">tag2</button></span>
-							<br>
-							<span class="post-details small"><strong> <a href="#"><?=date('d M Y',strtotime($article->created_at))?></a> | <a href="#">Admin name</a></strong></span>
-							<br><br>
-							<article>
-								<?=$article->excerpts?>
-							</article>
-							<div class="text-right small"><a href="<?=base_URL("index.php/user/view_article/{$article->post_id}")?>">Read more..</a></div>
-						</div>
-					<?php endforeach;?>
+						<?php if(count($category)): ?>
+							<?php foreach($category as $article):?>
+								<div class="card-body">
+									<img src="<?=$article->img_path?>" alt="" class="img-fluid">
+									<br>
+									<h3><?=$article->title?></h3>
+									<span class="post-tags"><button class="btn btn-success">tag1</button>
+									<button class="btn btn-primary">tag2</button></span>
+									<br>
+									<span class="post-details small"><strong> <a href="#"><?=date('d M Y',strtotime($article->created_at))?></a> | <a href="#">Admin name</a></strong></span>
+									<br><br>
+									<article>
+										<?=$article->excerpts?>
+									</article>
+									<div class="text-right small"><a href="<?=base_URL("index.php/user/view_article/{$article->post_id}")?>">Read more..</a></div>
+								</div>
+							<?php endforeach;?>
+						<?php else: ?>
+							<div class="card-body">	
+								<div class="card-title">	
+										<h5>No Articles found</h5>
+								</div>
+							</div>
+						<?php endif;?>
+
 					</div>
 					<br>
 				</div>

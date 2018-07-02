@@ -36,7 +36,7 @@
 							<div class="row">	
 							<?php foreach($related_posts as $image): ?>
 								<div class="col-md-4 col-sm-12">
-									<a href="#"><img class="img-fluid rel_image" src="<?=$image->img_path?>" alt="recent posts"/></a>
+									<a href="<?=base_URL("index.php/user/view_article/{$image->post_id}")?>"><img class="img-fluid rel_image" src="<?=$image->img_path?>" alt="recent posts"/></a>
 									<span class="post-title small"><?=$image->excerpts?></span>
 									<span class="post-details small"><strong> <a href="#"><?=date('d M Y',strtotime($article->created_at))?></a> | <a href="#">Admin name</a> </strong></span>
 								</div>
@@ -219,7 +219,7 @@
 						<div class="card-body">
 							<ul class="post-feed">
 								<?php foreach($recent_posts as $image): ?>
-								<li><a href=""><?=$image->title?></a></li>
+								<li><a href="<?=base_URL("index.php/user/view_article/{$image->post_id}")?>"><?=$image->title?></a></li>
 							<?php endforeach; ?>
 							</ul>
 						</div>

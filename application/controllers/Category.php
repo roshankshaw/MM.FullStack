@@ -15,13 +15,36 @@ class Category extends MY_Controller{
 		$recent_posts=$this->post->recent_posts();
 		$category=$this->category->find_post($cat);
 		$type=$this->category_array();
+		$catname=$type[$cat];
 		// DATA TO BE PASSED IN HOMEPAGE
 		$data=[
 				'id'=>$id,
 				'role'=>$role,
 				'recent_posts'=>$recent_posts,
 				'category'=>$category,
-				'type'=>$type
+				'type'=>$type,
+				'catname'=>$catname
+			];
+		$this->load->view('public/Category.php',$data);
+	}
+	// To view SUB CATEGORY PAGES
+	public function view_sub_page($cat){
+		if(!$cat)
+			return show_404();
+		$id=$this->session->userdata('user_id');
+		$role=$this->session->userdata('role');
+		$recent_posts=$this->post->recent_posts();
+		$category=$this->category->find_post($cat);
+		$type=$this->get_dpt_array();
+		$catname=$type[$cat];
+		// DATA TO BE PASSED IN HOMEPAGE
+		$data=[
+				'id'=>$id,
+				'role'=>$role,
+				'recent_posts'=>$recent_posts,
+				'category'=>$category,
+				'type'=>$type,
+				'catname'=>$catname
 			];
 		$this->load->view('public/Category.php',$data);
 	}
