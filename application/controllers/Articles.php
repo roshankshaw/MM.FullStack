@@ -15,7 +15,7 @@ class Articles extends MY_Controller{
 		//PAGINATION DETAILS
 		$this->load->library('pagination');
 		$config=[
-			'base_url'	=>	base_url('index.php/articles/browse_post'),
+			'base_url'	=>	base_url('articles/browse_post'),
 			'per_page'	=>	5,
 			'total_rows'=> $this->articles->count_login_user_articles(),
 			'first_link'=>'<<',

@@ -14,7 +14,7 @@ class Comments extends MY_Controller{
 		//PAGINATION DETAILS
 		$this->load->library('pagination');
 		$config=[
-			'base_url'	=>	base_url('index.php/comments/all_comments'),
+			'base_url'	=>	base_url('comments/all_comments'),
 			'per_page'	=>	10,
 			'total_rows'=> $this->comments->count_comments(),
 			'first_link'=>'<<',
@@ -60,7 +60,7 @@ class Comments extends MY_Controller{
 		//PAGINATION DETAILS
 		$this->load->library('pagination');
 		$config=[
-			'base_url'	=>	base_url('index.php/comments/pending_comments'),
+			'base_url'	=>	base_url('comments/pending_comments'),
 			'per_page'	=>	10,
 			'total_rows'=> $this->comments->count_pending_comments(),
 			'first_link'=>'<<',
@@ -92,7 +92,7 @@ class Comments extends MY_Controller{
 		//PAGINATION DETAILS
 		$this->load->library('pagination');
 		$config=[
-			'base_url'	=>	base_url('index.php/comments/approved_comments'),
+			'base_url'	=>	base_url('comments/approved_comments'),
 			'per_page'	=>	10,
 			'total_rows'=> $this->comments->count_approved_comments(),
 			'first_link'=>'<<',

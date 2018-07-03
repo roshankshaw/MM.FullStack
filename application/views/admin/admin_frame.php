@@ -16,7 +16,7 @@
             
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="<?= base_URL('index.php/login/logout')?>">LOG OUT</a></li>
+                    <li><a href="<?= base_URL('login/logout')?>">LOG OUT</a></li>
                     <!-- <li><a href="#">Page</a></li> -->
                 </ul>
                 <div class="nav navbar-right navbar-brand "><strong>Hello, <?php echo $dname;?></strong></div>

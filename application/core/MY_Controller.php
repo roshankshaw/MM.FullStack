@@ -31,12 +31,12 @@ class MY_Controller extends CI_Controller{
  	}
  	public function category_array(){
  		$category=[
- 			'cam'=>'Campus',
- 			'dpt'=>'Departments',
- 			'car'=>'Career',
- 			'vws'=>'Views',
- 			'ddc'=>'DD&CWC',
- 			'alm'=>'ALumni',
+ 			'cam'=>'campus',
+ 			'dpt'=>'departments',
+ 			'car'=>'career',
+ 			'vws'=>'views',
+ 			'ddc'=>'dd&cwc',
+ 			'alm'=>'aLumni',
 			'Not Assigned'=>'Not Assigned'
 		];
 		return $category;

@@ -36,7 +36,7 @@
 							<div class="row">	
 							<?php foreach($related_posts as $image): ?>
 								<div class="col-md-4 col-sm-12">
-									<a href="<?=base_URL("index.php/user/view_article/{$image->post_id}")?>"><img class="img-fluid rel_image" src="<?=$image->img_path?>" alt="recent posts"/></a>
+									<a href="<?=base_URL("user/view_article/{$image->post_id}")?>"><img class="img-fluid rel_image" src="<?=$image->img_path?>" alt="recent posts"/></a>
 									<span class="post-title small"><?=$image->excerpts?></span>
 									<span class="post-details small"><strong> <a href="#"><?=date('d M Y',strtotime($article->created_at))?></a> | <a href="#">Admin name</a> </strong></span>
 								</div>
@@ -68,8 +68,8 @@
 												<p class="card-text"><?= $comment->comment_body ?></p>
 												<a class="card-link" style data-toggle="collapse" class="text-default small" data-parent="#accordion" href="#collapse<?=$comment->comment_id?>">Reply</a>
 												<?php if(($id)==($comment->author_id)):?>
-													<a href='<?=base_URL("index.php/user/comment/{$comment->comment_id}/{$comment->post_id}")?>' class="card-link">Edit</a>
-													<a href='<?=base_URL("index.php/user/delete_comment/{$comment->comment_id}/{$comment->post_id}")?>' class="card-link" onclick= "return( confirm('Are you sure you want to delete this record?');")>Delete</a>
+													<a href='<?=base_URL("user/comment/{$comment->comment_id}/{$comment->post_id}")?>' class="card-link">Edit</a>
+													<a href='<?=base_URL("user/delete_comment/{$comment->comment_id}/{$comment->post_id}")?>' class="card-link" onclick= "return( confirm('Are you sure you want to delete this record?');")>Delete</a>
 												<?php endif;?>
 											</div>
 										</div>
@@ -87,8 +87,8 @@
 														</div>
 														<p class="card-text"><?= $reply->reply_body ?></p>
 														<?php if(($reply->author_id)==($id)):?>
-															<a href='<?=base_URL("index.php/user/edit_reply/{$reply->reply_id}/{$reply->post_id}")?>' class="card-link">Edit</a>
-															<a href='<?=base_URL("index.php/user/delete_reply/{$reply->reply_id}/{$reply->post_id}")?>' class="card-link" onclick= return confirm("Are you sure you want to delete this record?")))>Delete</a>
+															<a href='<?=base_URL("user/edit_reply/{$reply->reply_id}/{$reply->post_id}")?>' class="card-link">Edit</a>
+															<a href='<?=base_URL("user/delete_reply/{$reply->reply_id}/{$reply->post_id}")?>' class="card-link" onclick= return confirm("Are you sure you want to delete this record?")))>Delete</a>
 														<?php endif;?>
 													</div>
 												<?php endif;?>
@@ -103,7 +103,7 @@
 											<?php if(!$id): ?>
 												<div class="card-body">
 													<span>
-														You must be <a href="<?=base_URL('index.php/Login')?>">logged in</a> to reply to this a comment	
+														You must be <a href="<?=base_url('Login')?>">logged in</a> to reply to this a comment	
 													</span>
 												</div>
 											<?php else:?>
@@ -154,7 +154,7 @@
 						<?php if(!$id): ?>
 							<div class="card-body">
 								<span>
-									You must be <a href="<?=base_URL('index.php/Login')?>">logged in</a> to post a comment	
+									You must be <a href="<?=base_url('Login')?>">logged in</a> to post a comment	
 								</span>
 							</div>
 						<?php else:?>
@@ -219,7 +219,7 @@
 						<div class="card-body">
 							<ul class="post-feed">
 								<?php foreach($recent_posts as $image): ?>
-								<li><a href="<?=base_URL("index.php/user/view_article/{$image->post_id}")?>"><?=$image->title?></a></li>
+								<li><a href="<?=base_URL("user/view_article/{$image->post_id}")?>"><?=$image->title?></a></li>
 							<?php endforeach; ?>
 							</ul>
 						</div>

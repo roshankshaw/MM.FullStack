@@ -42,17 +42,17 @@
 		<nav class="navba-top">
 			<ul class="navba-nav-top list-group">
 				<li class="top-nav-item"><span id="demo"></span></li>
-				<li class="top-nav-item"><a href="#" >Home</a></li>
+				<li class="top-nav-item"><a href="<?=base_URL('user')?>" >Home</a></li>
 				<li class="top-nav-item"><a href="#" >Contact us</a></li>
 				<li class="top-nav-item"><a href="#" >Issue</a></li>
 				<?php if($id):?>
-					<li class="top-nav-item"><a href="<?=base_URL('index.php/login/logout')?>" >Logout</a></li>
+					<li class="top-nav-item"><a href="<?=base_URL('login/logout')?>" >Logout</a></li>
 					<?php if($role=="admin"):?>
-						<li class="top-nav-item"><a href="<?=base_URL('index.php/admin/dashboard')?>" >Admin</a></li>
+						<li class="top-nav-item"><a href="<?=base_URL('admin/dashboard')?>" >Admin</a></li>
 					<?php endif;?>
 				<?php else: ?>
-					<li class="top-nav-item"><a href="<?=base_URL('index.php/login')?>" >Login</a></li>
-					<li class="top-nav-item"><a href="<?=base_URL('index.php/Register')?>" >Register</a></li>
+					<li class="top-nav-item"><a href="<?=base_URL('login')?>" >Login</a></li>
+					<li class="top-nav-item"><a href="<?=base_URL('Register')?>" >Register</a></li>
 				<?php endif; ?>
 
 			</ul>
@@ -88,66 +88,66 @@
 
 				</li>
 				<li class="nav-item" id="active">
-					<a class="nav-link" id="active" href="<?=base_URL('index.php/user')?>">Home</a>
+					<a class="nav-link" id="active" href="<?=base_URL('user')?>">Home</a>
 					<div class="dropdownmenu"/>
 				</li>
 
 				<li class="nav-item dropdown"><a class="nav-link dropdown" href="#" id="navbar-drop">Departments</a>
 					<div class="dropdownmenu">
 						<ul>    
-							<li><a class="dropdownitem" href="<?=base_URL('index.php/category/view_sub_page/bm')?>">Biotechnology and Biomedical Engineering </a></li>   
-							<li><a class="dropdownitem" href="<?=base_URL('index.php/category/view_sub_page/cr')?>">Ceramic Engineering</a>    </li>
-							<li><a class="dropdownitem" href="<?=base_URL('index.php/category/view_sub_page/ch')?>">Chemical Engineering</a>   </li>
-							<li><a class="dropdownitem" href="<?=base_URL('index.php/category/view_sub_page/ce')?>">Civil Engineering</a>  </li>
-							<li><a class="dropdownitem" href="<?=base_URL('index.php/category/view_sub_page/cs')?>">Computer Science and Engineering</a>  </li>
-							<li><a class="dropdownitem" href="<?=base_URL('index.php/category/view_sub_page/cy')?>">Department of Chemistry</a>   </li>
-							<li><a class="dropdownitem" href="<?=base_URL('index.php/category/view_sub_page/hs')?>">Department of Humanities</a>   </li>
-							<li><a class="dropdownitem" href="<?=base_URL('index.php/category/view_sub_page/ls')?>">Department of Life Science</a> </li>
-							<li><a class="dropdownitem" href="<?=base_URL('index.php/category/view_sub_page/ma')?>">Department of Mathematics</a>  </li>
-							<li><a class="dropdownitem" href="<?=base_URL('index.php/category/view_sub_page/ph')?>">Department of Physics</a>  </li>
-							<li><a class="dropdownitem" href="<?=base_URL('index.php/category/view_sub_page/ee')?>">Electrical Engineering </a></li>
-							<li><a class="dropdownitem" href="<?=base_URL('index.php/category/view_sub_page/ece')?>">Electronics and Communication Engineering </a></li>
-							<li><a class="dropdownitem" href="<?=base_URL('index.php/category/view_sub_page/fp')?>">Food Process Engineering </a></li>
-							<li><a class="dropdownitem" href="<?=base_URL('index.php/category/view_sub_page/id')?>">Industrial Design </a></li>
-							<li><a class="dropdownitem" href="<?=base_URL('index.php/category/view_sub_page/me')?>">Mechanical Engineering </a></li>
-							<li><a class="dropdownitem" href="<?=base_URL('index.php/category/view_sub_page/mm')?>">Metallurgical and Materials Engineering </a></li>
-							<li><a class="dropdownitem" href="<?=base_URL('index.php/category/view_sub_page/mn')?>">Mining Engineering </a></li>
-							<li><a class="dropdownitem" href="<?=base_URL('index.php/category/view_sub_page/ar')?>">Planning and Architecture </a></li>
-							<li><a class="dropdownitem" href="<?=base_URL('index.php/category/view_sub_page/mg')?>">School of Management </a></li>
-							<li><a class="dropdownitem" href="<?=base_URL('index.php/category/view_sub_page/ea')?>">Department of Earth and Atmospheric Sciences </a></li>
+							<li><a class="dropdownitem" href="<?=base_URL('category/view_sub_page/bm')?>">Biotechnology and Biomedical Engineering </a></li>   
+							<li><a class="dropdownitem" href="<?=base_URL('category/view_sub_page/cr')?>">Ceramic Engineering</a>    </li>
+							<li><a class="dropdownitem" href="<?=base_URL('category/view_sub_page/ch')?>">Chemical Engineering</a>   </li>
+							<li><a class="dropdownitem" href="<?=base_URL('category/view_sub_page/ce')?>">Civil Engineering</a>  </li>
+							<li><a class="dropdownitem" href="<?=base_URL('category/view_sub_page/cs')?>">Computer Science and Engineering</a>  </li>
+							<li><a class="dropdownitem" href="<?=base_URL('category/view_sub_page/cy')?>">Department of Chemistry</a>   </li>
+							<li><a class="dropdownitem" href="<?=base_URL('category/view_sub_page/hs')?>">Department of Humanities</a>   </li>
+							<li><a class="dropdownitem" href="<?=base_URL('category/view_sub_page/ls')?>">Department of Life Science</a> </li>
+							<li><a class="dropdownitem" href="<?=base_URL('category/view_sub_page/ma')?>">Department of Mathematics</a>  </li>
+							<li><a class="dropdownitem" href="<?=base_URL('category/view_sub_page/ph')?>">Department of Physics</a>  </li>
+							<li><a class="dropdownitem" href="<?=base_URL('category/view_sub_page/ee')?>">Electrical Engineering </a></li>
+							<li><a class="dropdownitem" href="<?=base_URL('category/view_sub_page/ece')?>">Electronics and Communication Engineering </a></li>
+							<li><a class="dropdownitem" href="<?=base_URL('category/view_sub_page/fp')?>">Food Process Engineering </a></li>
+							<li><a class="dropdownitem" href="<?=base_URL('category/view_sub_page/id')?>">Industrial Design </a></li>
+							<li><a class="dropdownitem" href="<?=base_URL('category/view_sub_page/me')?>">Mechanical Engineering </a></li>
+							<li><a class="dropdownitem" href="<?=base_URL('category/view_sub_page/mm')?>">Metallurgical and Materials Engineering </a></li>
+							<li><a class="dropdownitem" href="<?=base_URL('category/view_sub_page/mn')?>">Mining Engineering </a></li>
+							<li><a class="dropdownitem" href="<?=base_URL('category/view_sub_page/ar')?>">Planning and Architecture </a></li>
+							<li><a class="dropdownitem" href="<?=base_URL('category/view_sub_page/mg')?>">School of Management </a></li>
+							<li><a class="dropdownitem" href="<?=base_URL('category/view_sub_page/ea')?>">Department of Earth and Atmospheric Sciences </a></li>
 						</ul>   
 					</div>
 				</li>
 
-				<li class="nav-item dropdown"><a class="nav-link dropdown" id="navbar-drop" href="<?=base_URL('index.php/category/view_page/cam')?>">Campus</a>
+				<li class="nav-item dropdown"><a class="nav-link dropdown" id="navbar-drop" href="<?=base_URL('category/view_page/cam')?>">Campus</a>
 					<div class="dropdownmenu">
 						<ul >
-							<li><a class="dropdownitem" href="#">SAC Speaks</a></li>
-							<li><a class="dropdownitem" href="<?=base_URL('index.php/category/view_page/cam')?>">Campus Buzz</a></li>
-							<li><a class="dropdownitem" href="#">Clubs</a></li>
-							<li><a class="dropdownitem" href="#">Halls</a></li>
-							<li><a class="dropdownitem" href="#">Sports</a></li>
-							<li><a class="dropdownitem" href="#">Fests</a></li>
-							<li><a class="dropdownitem" href="#">Wits-Dom</a></li>
+							<li><a class="dropdownitem" href="<?=base_URL('category/view_page/cam')?>">SAC Speaks</a></li>
+							<li><a class="dropdownitem" href="<?=base_URL('category/view_page/cam')?>">Campus Buzz</a></li>
+							<li><a class="dropdownitem" href="<?=base_URL('category/view_page/cam')?>">Clubs</a></li>
+							<li><a class="dropdownitem" href="<?=base_URL('category/view_page/cam')?>">Halls</a></li>
+							<li><a class="dropdownitem" href="<?=base_URL('category/view_page/cam')?>">Sports</a></li>
+							<li><a class="dropdownitem" href="<?=base_URL('category/view_page/cam')?>">Fests</a></li>
+							<li><a class="dropdownitem" href="<?=base_URL('category/view_page/cam')?>">Wits-Dom</a></li>
 						</ul>						
 					</div>
 				</li>
-				<li class="nav-item dropdown"><a class="nav-link dropdown" id="navbar-drop" href="<?=base_URL('index.php/category/view_page/vws')?>">Views</a>
+				<li class="nav-item dropdown"><a class="nav-link dropdown" id="navbar-drop" href="<?=base_URL('category/view_page/vws')?>">Views</a>
 					<div class="dropdownmenu">
 						<ul>
-							<li><a class="dropdownitem" href="#">Interview</a></li>
-							<li><a class="dropdownitem" href="#">The CGPA</a></li>
-							<li><a class="dropdownitem" href="<?=base_URL('index.php/polls')?>">Student Pulse</a></li>
-							<li><a class="dropdownitem" href="<?=base_URL('index.php/polls')?>">Poll Analysis</a></li>
-							<li><a class="dropdownitem" href="#">Featured</a></li>
-							<li><a class="dropdownitem" href="#">Citizen Journalist</a>
+							<li><a class="dropdownitem" href="<?=base_URL('category/view_page/vws')?>">Interview</a></li>
+							<li><a class="dropdownitem" href="<?=base_URL('category/view_page/vws')?>">The CGPA</a></li>
+							<li><a class="dropdownitem" href="<?=base_URL('polls')?>">Student Pulse</a></li>
+							<li><a class="dropdownitem" href="<?=base_URL('polls')?>">Poll Analysis</a></li>
+							<li><a class="dropdownitem" href="<?=base_URL('category/view_page/vws')?>">Featured</a></li>
+							<li><a class="dropdownitem" href="<?=base_URL('category/view_page/vws')?>">Citizen Journalist</a>
 							</li>
-							<li><a class="dropdownitem" href="<?=base_URL('index.php/forum')?>">Forum</a></li>
-							<li><a class="dropdownitem" href="<?=base_URL('index.php/aaq')?>">Ask a Question</a></li>
+							<li><a class="dropdownitem" href="<?=base_URL('forum')?>">Forum</a></li>
+							<li><a class="dropdownitem" href="<?=base_URL('aaq')?>">Ask a Question</a></li>
 						</ul>
 					</div>
 				</li>
-				<li class="nav-item dropdown"><a class="nav-link dropdown" id="navbar-drop" href="<?=base_URL('index.php/category/view_page/car')?>">Career</a>
+				<li class="nav-item dropdown"><a class="nav-link dropdown" id="navbar-drop" href="<?=base_URL('category/view_page/car')?>">Career</a>
 					<div class="dropdownmenu">
 						<ul >
 							<li><a class="dropdownitem" href="#">Placements</a></li>
@@ -160,7 +160,7 @@
 						
 					</div>
 				</li>
-				<li class="nav-item dropdown"><a class="nav-link dropdown" id="navbar-drop" href="<?=base_URL('index.php/category/view_page/alm')?>">Alumni</a>
+				<li class="nav-item dropdown"><a class="nav-link dropdown" id="navbar-drop" href="<?=base_URL('category/view_page/alm')?>">Alumni</a>
 					<div class="dropdownmenu">
 						<ul >
 							<li><a class="dropdownitem" href="#">Alumnus Speaks</a></li>
@@ -170,7 +170,7 @@
 						</ul>
 					</div>
 				</li>
-				<li class="nav-item dropdown"><a class="nav-link dropdown" id="navbar-drop" href="<?=base_URL('index.php/category/view_page/ddc')?>">DD&CWC</a>
+				<li class="nav-item dropdown"><a class="nav-link dropdown" id="navbar-drop" href="<?=base_URL('category/view_page/ddc')?>">DD&CWC</a>
 					<div class="dropdownmenu">
 						<ul >
 							<li><a class="dropdownitem" href="#">Director's Desk</a></li>

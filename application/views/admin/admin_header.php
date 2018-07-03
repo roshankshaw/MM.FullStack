@@ -28,8 +28,8 @@
                     <li class="active">
                         <a class="sidebara" href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">Posts</a>
                         <ul class="collapse list-unstyled" id="homeSubmenu">
-                            <li><a href="<?= base_URL('index.php/articles/browse_post')?>">Browse</a></li>
-                            <li><a href="<?= base_URL('index.php/articles/add_article')?>">Add New</a></li>
+                            <li><a href="<?= base_url('articles/browse_post')?>">Browse</a></li>
+                            <li><a href="<?= base_url('articles/add_article')?>">Add New</a></li>
                         </ul>
                     </li>
                     <li>
@@ -42,9 +42,9 @@
                     <li>
                         <a class="sidebara" href="#commentsSubmenu" data-toggle="collapse" aria-expanded="false">Comments</a>
                         <ul class="collapse list-unstyled" id="commentsSubmenu">
-                            <li><a href="<?= base_URL('index.php/comments/all_comments')?>">All</a></li>
-                            <li><a href="<?= base_URL('index.php/comments/pending_comments')?>">Pending</a></li>
-                            <li><a href="<?= base_URL('index.php/comments/approved_comments')?>">Approved</a></li>
+                            <li><a href="<?= base_url('comments/all_comments')?>">All</a></li>
+                            <li><a href="<?= base_url('comments/pending_comments')?>">Pending</a></li>
+                            <li><a href="<?= base_url('comments/approved_comments')?>">Approved</a></li>
                         </ul>
                     </li>
                     <!-- <li>
@@ -56,7 +56,7 @@
                 </ul>
 
                 <ul class="list-unstyled CTAs">
-                    <li><a href="<?=base_URL('index.php/user')?>" class="article">Back to Homepage</a></li>
+                    <li><a href="<?=base_url('user')?>" class="article">Back to Homepage</a></li>
                 </ul>
             </nav>
             

@@ -30,7 +30,7 @@
 									<article>
 										<?=$article->excerpts?>
 									</article>
-									<div class="text-right small"><a href="<?=base_URL("index.php/user/view_article/{$article->post_id}")?>">Read more..</a></div>
+									<div class="text-right small"><a href="<?=base_URL("user/view_article/{$article->post_id}")?>">Read more..</a></div>
 								</div>
 							<?php endforeach;?>
 						<?php else: ?>
@@ -78,7 +78,7 @@
 						<div class="card-body">
 							<ul class="post-feed">
 								<?php foreach($recent_posts as $image): ?>
-								<li><a href=""><?=$image->title?></a></li>
+								<li><a href="<?=base_URL("user/view_article/{$image->post_id}")?>"><?=$image->title?></a></li>
 							<?php endforeach; ?>
 							</ul>
 						</div>
