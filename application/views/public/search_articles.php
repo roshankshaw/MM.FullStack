@@ -1,74 +1,53 @@
 <?php include('page_header.php') ?>
-		<link rel="stylesheet" href="../css/style_category.css">
 
-	<div class="container wrap">
-	<!-- BEGIN MAIN CONTENT SECTION -->	
+<div class="container wrap">	
+	<!-- MAIN CONTENT SECTION -->
 		<div class="row">
-			<div class="col-md-8 col-sm-12 category-section-view">
-				<!-- BEGIN CATEGORY SECTION -->
-				<div class="row">
-					<div class="card w-100 col-md-12">
-						<div class="card-header">
-							<h3><?= $catname ?></h3>
+			<div class="col-md-8 col-sm-12 article-body">
+				<!--  Begin Search Results -->
+				<div class="input-group mb-3">
+				  	<div class="input-group-prepend">
+				    	<span class="input-group-text" id="inputGroup-sizing-default">Search</span>
+				  	</div>
+				  	<?php if($query!=''):?>
+					  	<input type="text" name="search_text" id="search_text" value="<?=$query?>" class="form-control" placeholder="Search Articles" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+				  	<?php else:?>
+				  	<input type="text" name="search_text" id="search_text" class="form-control" placeholder="Search Articles" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+				  	<?php endif; ?>	
+				</div>	
+				<div class="row" id="result">
+				</div>
+				<script src="<?=base_URL('assets/js/search.js')?>"></script>  
+
+				<!-- End Search Results -->
+				<br>
+				<br>
+				<br>
+				<!-- BEGIN RELATED POSTS -->
+				<div class ="row">
+					<div class="card">
+						<div class="card-header post-related">
+							<h5>RELATED POSTS</h5>
+						</div>
+						<div class="card-body">
+							<div class="row">	
+							<?php foreach($related_posts as $image): ?>
+								<div class="col-md-4 col-sm-12">
+									<a href="<?=base_URL("user/view_article/{$image->post_id}")?>"><img class="img-fluid rel_image" src="<?=$image->img_path?>" alt="recent posts"/></a>
+									<span class="post-title small"><?=$image->excerpts?></span>
+									<span class="post-details small"><strong> <a href="#"><?=date('d M Y',strtotime($image->created_at))?></a> | <a href="#">Admin name</a> </strong></span>
+								</div>
+							<?php endforeach; ?>
+							</div>
 						</div>
 					</div>
 				</div>
-				<br>
-				<div class="row">
-					<div class="card col-md-12">
-						<?php if(count($category)): ?>
-							<?php foreach($category as $article):?>
-								<div class="card-body">
-									<img src="<?=$article->img_path?>" alt="" class="img-fluid">
-									<br>
-									<h3><?=$article->title?></h3>
-									<span class="post-tags"><button class="btn btn-success">tag1</button>
-									<button class="btn btn-primary">tag2</button></span>
-									<br>
-									<span class="post-details small"><strong> <a href="#"><?=date('d M Y',strtotime($article->created_at))?></a> | <a href="#">Admin name</a></strong></span>
-									<br><br>
-									<article>
-										<?=$article->excerpts?>
-									</article>
-									<div class="text-right small"><a href="<?=base_URL("user/view_article/{$article->post_id}")?>">Read more..</a></div>
-								</div>
-							<?php endforeach;?>
-						<?php else: ?>
-							<div class="card-body">	
-								<div class="card-title">	
-										<h5>No Articles found</h5>
-								</div>
-							</div>
-						<?php endif;?>
+				<!-- END RELATED POSTS	 -->
+				<br><br>
+			</div>	
 
-					</div>
-					<br>
-				</div>
-				<!-- END CATEGORY SECTION -->
-				
-			</div>
-
-	<!-- BEGIN SIDEBAR SECTION -->
+			<!-- BEGIN SIDEBAR SECTION -->
 			<div class="col-md-4 col-sm-12 sidebar-section">
-				<!-- BEGIN SEARCH BOX -->
-				<div class="row">
-					<div class="a-search">
-						<form class="article-search" method="post" action="<?=base_URL('search/searchpost')?>">
-							<table>
-								<tr>
-									<td class="w-100">
-										<input type="text" title="search" class="w-100" name="search" placeholder="Search articles"/>
-									</td>
-									<td>
-										<button class="search" name="searcha" onclick="">Search</button>
-									</td>
-								</tr>
-							</table>
-						</form>
-					</div>
-				</div>
-				<!-- END SEARCH BOX -->
-				<br>
 				<!-- BEGIN RECENT POSTS -->
 				<div class="row">
 					<div class="card w-100">

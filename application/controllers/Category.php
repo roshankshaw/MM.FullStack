@@ -34,7 +34,7 @@ class Category extends MY_Controller{
 		$id=$this->session->userdata('user_id');
 		$role=$this->session->userdata('role');
 		$recent_posts=$this->post->recent_posts();
-		$category=$this->category->find_post($cat);
+		$category=$this->category->find_sub_post($cat);
 		$type=$this->get_dpt_array();
 		$catname=$type[$cat];
 		// DATA TO BE PASSED IN HOMEPAGE

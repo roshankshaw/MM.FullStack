@@ -16,6 +16,7 @@
 
 		<!-- Latest compiled JavaScript -->
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+		<script src="<?=base_URL('assets/js/jquery.min.js')?>"></script>
 	<!-- Add icon library -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<!-- user source files -->
@@ -212,15 +213,15 @@
 				</li>
 				<li class="nav-item dropdown">
 					<div class="searchbox">
-						<a class="nav-link dropdown fa fa-search" id="navbar-drop" href="#"></a>
-						<form class="menusearch">
+						<a class="nav-link dropdown fa fa-search" data-toggle="collapse" id="navbar-drop" href="#postarticle"></a>
+						<form class="menusearch panel-collapse collapse" id="postarticle" method="post" action="<?=base_URL('Search/searchpost')?>">
 							<table>
 								<tr>
 									<td>
 										<input class="search" type="text" title="search" name="search" placeholder="Search articles">
 									</td>
 									<td>
-										<button class="search" name="searcha" onclick=""><a class="fa fa-search link"></a></button>
+										<button class="search" type="submit" name="searcha" onclick=""><a class="fa fa-search link"></a></button>
 									</td>
 								</tr>
 							</table>

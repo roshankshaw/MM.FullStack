@@ -68,14 +68,14 @@
 				<!-- BEGIN SEARCH BOX -->
 				<div class="row">
 					<div class="a-search">
-						<form class="article-search">
+						<form class="article-search" method="post" action="<?=base_URL('search/searchpost')?>">
 							<table>
 								<tr>
 									<td class="w-100">
 										<input type="text" title="search" class="w-100" name="search" placeholder="Search articles"/>
 									</td>
 									<td>
-										<button class="search" name="searcha" onclick=""><a>Search</a></button>
+										<button class="search" name="searcha" onclick="">Search</button>
 									</td>
 								</tr>
 							</table>

@@ -5,7 +5,9 @@ class Api extends MY_Controller{
 		parent::__construct();
 		//LOADING MODELS FOR HOMEPAGE AND ARTICLES_DETAIL page
 		$this->load->model('homemodel','home');
+		$this->load->model('commentmodel','comment');
 		$this->load->model('apimodel','api');
+		$this->load->model('loginmodel','login');
 	}
 
 	public function getfeaturedposts(){
@@ -131,6 +133,29 @@ class Api extends MY_Controller{
 		$this->load->view('public/api',$data);
 	}
 
+	public function getmultipleposts(){
+		$ids=$this->input->post('post_ids');
+		print_r($ids);
+		exit();
+		$i=0;
+		foreach ($ids as $id) {
+			$articles[$i]=$this->article_model->find_article($id);
+			unset($articles[$i]['Content']);
+			$i++;
+		}
+		
+		$posts = new stdClass();
+		if($articles){
+			$posts->success=true;
+			$posts->data=$articles;		
+		} else {
+			$posts->success=false;
+			$posts->error_log='Incorrect keyword/No date found';
+		}		
+		$data['articles']=json_encode($posts);
+		$this->load->view('public/api',$data);
+	}
+
 	public function geteditorspick(){
 		$query=$this->api->get_editor_pick();
 		foreach($query as $row)
@@ -235,5 +260,54 @@ class Api extends MY_Controller{
 		$data['articles']=json_encode($posts);
 		$this->load->view('public/api',$data);
 	}
+
+
+
+	public function submitcomment(){
+		$data = array();
+		$data['comment_body'] = $this->input->post('comment');
+		$data['post_id'] = $this->input->post('post_id');
+		$data['author_id'] = $this->input->post('author_id');
+		//KEY given below are automatically stored...
+		$data['author_name'] = $this->api->get_author_name($data['author_id']);
+		$data['created_at'] = date('Y-m-d H:i:s');
+		$articles = $this->api->add_comment($data);
+		$posts = new stdclass();
+		if($articles)
+		{
+			$posts->success=true;
+			$posts->data=$articles;
+		}
+		else
+		{
+			$posts->success=false;
+			$posts->error="Invalid post. No data received...";
+		}
+		$data['articles']=json_encode($posts);
+		$this->load->view('public/api',$data);
+	}
+	
+	public function signin(){
+		$username=$this->input->post('username');	
+		$password=$this->input->post('password');
+		$password=md5($password);
+		$posts = new stdClass();
+		
+		if($user=$this->login->validate_login($username,$password))
+			{
+				$this->session->set_userdata(['user_id'=>$user->id,'dname'=>$user->dname,'role'=>$user->role]);
+				unset($user->pword);
+				$posts->success=true;
+				$posts->data=$user;	
+			} 
+			else {
+				$posts->success=false;
+				$posts->error='Incorrect username or password';
+			}
+		$data['articles']=json_encode($posts);
+		$this->load->view('public/api',$data);
+
+	}
+
 
 }

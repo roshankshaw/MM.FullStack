@@ -1,7 +1,7 @@
 <?php 
 class Commentmodel extends CI_Model{
 	public function add_comment($query){
-		$q=$this->db->insert('comments',$query);
+		return $this->db->insert('comments',$query);
 	}
 	public function show_comment($post_id){
 		$q=$this->db

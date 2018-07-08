@@ -36,6 +36,12 @@ window.onclick = function(event) {
         menuicon[0].classList.remove('change');
   }
 }
+ 
+$(document).ready(function(){
+    $("#flip").click(function(){
+        $("#panel").slideToggle("slow");
+    });
+});
 
 //Navbar fixing at the top
 

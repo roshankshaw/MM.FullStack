@@ -90,4 +90,19 @@ class Apimodel extends CI_Model{
 					->get();
 		return $q->result();
 	}
+	public function add_comment($query){
+		if($this->db->insert('comments',$query)){
+			return $this->db->insert_id();
+		}
+		else{
+			return false;
+		}
+	}
+	public function get_author_name($id){
+		$q=$this->db
+					->from('users')
+					->where('id',$id)
+					->get();
+		return $q->row()->dname;
+	}
 }

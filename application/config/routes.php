@@ -62,6 +62,7 @@ $route['api/post/get/category/(:any)']='api/getpostsbycategory/$1';
 $route['api/post/get/category/(:any)/(:num)']='api/getpostsbycategory/$1/$2';
 $route['api/post/get/category/(:any)/(:num)/(:num)']='api/getpostsbycategory/$1/$2/$3';
 $route['api/post/get/(:num)']='api/getpostbyid/$1';
+$route['api/post/get/multiple']='api/getmultipleposts';
 $route['api/post/get/editorspick']='api/geteditorspick';
 $route['api/post/get/latest']='api/getlatestposts';
 $route['api/search/(:any)']='api/searchposts/$1';
@@ -69,6 +70,5 @@ $route['api/search/(:any)/(:num)']='api/searchposts/$1/$2';
 $route['api/search/(:any)/(:num)/(:num)']='api/searchposts/$1/$2/$3';
 $route['api/comments/get/(:num)']='api/getcomments';
 $route['api/user/signin']='api/signin';
-$route['api/posts/get/multiple']='api/getmultipleposts';
 $route['api/comment/submit']='api/submitcomment';
 

@@ -34,10 +34,27 @@
 	color:gray;
 	font-style: italic;
 }
+.stitle>a{
+	color:black;
+}
+.sexcerpts>a{
+	text-decoration: none;
+	color:gray;
+}
 @media screen and (min-width:768px){
 	.rel_image{
 		height:155px;
 		width:100%;
+	}
+	#search_results{
+	display:none;
+	}
+	.stitle {
+		color:black;
+	}
+	.sexcerpts>a{
+		text-decoration: none;
+		color:gray;
 	}
 }
 /*CONTENT OF THE WEBSITE ENDS*/
