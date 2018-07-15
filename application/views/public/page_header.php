@@ -93,7 +93,7 @@
 					<div class="dropdownmenu"/>
 				</li>
 
-				<li class="nav-item dropdown"><a class="nav-link dropdown" href="#" id="navbar-drop">Departments</a>
+				<li class="nav-item dropdown"><a class="nav-link dropdown" href="<?=base_URL('category/view_page/dpt')?>" id="navbar-drop">Departments</a>
 					<div class="dropdownmenu">
 						<ul>    
 							<li><a class="dropdownitem" href="<?=base_URL('category/view_sub_page/bm')?>">Biotechnology and Biomedical Engineering </a></li>   
@@ -123,33 +123,32 @@
 				<li class="nav-item dropdown"><a class="nav-link dropdown" id="navbar-drop" href="<?=base_URL('category/view_page/cam')?>">Campus</a>
 					<div class="dropdownmenu">
 						<ul >
-							<li><a class="dropdownitem" href="<?=base_URL('category/view_page/cam')?>">SAC Speaks</a></li>
-							<li><a class="dropdownitem" href="<?=base_URL('category/view_page/cam')?>">Campus Buzz</a></li>
-							<li><a class="dropdownitem" href="<?=base_URL('category/view_page/cam')?>">Clubs</a></li>
-							<li><a class="dropdownitem" href="<?=base_URL('category/view_page/cam')?>">Halls</a></li>
-							<li><a class="dropdownitem" href="<?=base_URL('category/view_page/cam')?>">Sports</a></li>
-							<li><a class="dropdownitem" href="<?=base_URL('category/view_page/cam')?>">Fests</a></li>
-							<li><a class="dropdownitem" href="<?=base_URL('category/view_page/cam')?>">Wits-Dom</a></li>
+							<!-- <li><a class="dropdownitem" href="#">SAC Speaks</a></li> -->
+							<!-- <li><a class="dropdownitem" href="#">Campus Buzz</a></li> -->
+							<!-- <li><a class="dropdownitem" href="#">Clubs</a></li> -->
+							<!-- <li><a class="dropdownitem" href="#">Halls</a></li> -->
+							<!-- <li><a class="dropdownitem" href="#">Sports</a></li> -->
+							<!-- <li><a class="dropdownitem" href="#">Fests</a></li> -->
+							<!-- <li><a class="dropdownitem" href="#">Wits-Dom</a></li> -->
 						</ul>						
 					</div>
 				</li>
 				<li class="nav-item dropdown"><a class="nav-link dropdown" id="navbar-drop" href="<?=base_URL('category/view_page/vws')?>">Views</a>
 					<div class="dropdownmenu">
 						<ul>
-							<li><a class="dropdownitem" href="<?=base_URL('category/view_page/vws')?>">Interview</a></li>
-							<li><a class="dropdownitem" href="<?=base_URL('category/view_page/vws')?>">The CGPA</a></li>
 							<li><a class="dropdownitem" href="<?=base_URL('polls')?>">Student Pulse</a></li>
 							<li><a class="dropdownitem" href="<?=base_URL('polls')?>">Poll Analysis</a></li>
-							<li><a class="dropdownitem" href="<?=base_URL('category/view_page/vws')?>">Featured</a></li>
-							<li><a class="dropdownitem" href="<?=base_URL('category/view_page/vws')?>">Citizen Journalist</a>
-							</li>
 							<li><a class="dropdownitem" href="<?=base_URL('forum')?>">Forum</a></li>
 							<li><a class="dropdownitem" href="<?=base_URL('aaq')?>">Ask a Question</a></li>
+							<!-- <li><a class="dropdownitem" href="#">The CGPA</a></li> -->
+							<!-- <li><a class="dropdownitem" href="#">Interview</a></li> -->
+							<!-- <li><a class="dropdownitem" href="#">Featured</a></li> -->
+							<!-- <li><a class="dropdownitem" href="#">Citizen Journalist</a></li> -->
 						</ul>
 					</div>
 				</li>
 				<li class="nav-item dropdown"><a class="nav-link dropdown" id="navbar-drop" href="<?=base_URL('category/view_page/car')?>">Career</a>
-					<div class="dropdownmenu">
+					<!-- <div class="dropdownmenu">
 						<ul >
 							<li><a class="dropdownitem" href="#">Placements</a></li>
 							<li><a class="dropdownitem" href="#">Recruitment Feedback</a></li>
@@ -159,27 +158,27 @@
 							<li><a class="dropdownitem" href="#">Share Your Intern</a></li>
 						</ul>
 						
-					</div>
+					</div> -->
 				</li>
 				<li class="nav-item dropdown"><a class="nav-link dropdown" id="navbar-drop" href="<?=base_URL('category/view_page/alm')?>">Alumni</a>
-					<div class="dropdownmenu">
+					<!-- <div class="dropdownmenu">
 						<ul >
 							<li><a class="dropdownitem" href="#">Alumnus Speaks</a></li>
 							<li><a class="dropdownitem" href="#">Happenings</a></li>
 							<li><a class="dropdownitem" href="#" target="_blank">Find your Alumni</a></li>
 							<li><a class="dropdownitem" href="#">NITRAA Executive Council</a></li>
 						</ul>
-					</div>
+					</div> -->
 				</li>
 				<li class="nav-item dropdown"><a class="nav-link dropdown" id="navbar-drop" href="<?=base_URL('category/view_page/ddc')?>">DD&CWC</a>
-					<div class="dropdownmenu">
+					<!-- <div class="dropdownmenu">
 						<ul >
 							<li><a class="dropdownitem" href="#">Director's Desk</a></li>
 							<li><a class="dropdownitem" href="#">Chief Warden's Column</a></li>
 						</ul>
-					</div>
+					</div> -->
 				</li>
-				<li class="nav-item dropdown"><a class="nav-link dropdown" id="navbar-drop" href="#">Gallery</a>
+				<!-- <li class="nav-item dropdown"><a class="nav-link dropdown" id="navbar-drop" href="#">Gallery</a>
 					<div class="dropdownmenu">
 						<ul >
 							
@@ -210,7 +209,7 @@
 					</div>
 				</li>
 				<li class="nav-item dropdown"><a class="nav-link dropdown" id="navbar-drop" href="#">Live</a>
-				</li>
+				</li> -->
 				<li class="nav-item dropdown">
 					<div class="searchbox">
 						<a class="nav-link dropdown fa fa-search" data-toggle="collapse" id="navbar-drop" href="#postarticle"></a>

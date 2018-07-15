@@ -1,75 +1,59 @@
 <?php include('page_header.php') ?>
-		<link rel="stylesheet" href="../css/style_category.css">
 
-	<div class="container wrap">
-	<!-- BEGIN MAIN CONTENT SECTION -->	
-		<div class="row">
-			<div class="col-md-8 col-sm-12 category-section-view">
-				<!-- BEGIN CATEGORY SECTION -->
-				<div class="row">
-					<div class="card w-100 col-md-12">
-						<div class="card-header">
-							<h3><?= $catname ?></h3>
-						</div>
+
+	<div class="container wrap">	
+	<!-- MAIN CONTENT SECTION -->
+		<div class="row">	
+			<!-- BEGIN ASK A QUESTION SECTION -->
+			<div class="aaq-section-view col-md-8 col-sm-12">
+				<div class="card">
+					<div class="card-header">
+						<h3>ASK QUESTION</h3>
 					</div>
-				</div>
-				<br>
-				<div class="row">
-					<div class="card col-md-12">
-						<?php if(count($category)): ?>
-							<?php foreach($category as $article):?>
-								<div class="card-body">
-									<img src="<?=$article->img_path?>" alt="" class="img-fluid">
-									<br>
-									<h3><?=$article->title?></h3>
-									<span class="post-tags"><button class="btn btn-success">tag1</button>
-									<button class="btn btn-primary">tag2</button></span>
-									<br>
-									<span class="post-details small"><strong> <a href="#"><?=date('d M Y',strtotime($article->created_at))?></a> | <a href="#">Admin name</a></strong></span>
-									<br><br>
-									<article>
-										<?=$article->excerpts?>
-									</article>
-									<div class="text-right small"><a href="<?=base_URL("user/view_article/{$article->post_id}")?>">Read more..</a></div>
-								</div>
-							<?php endforeach;?>
+					<div class="card-body">
+				      	<h5 class="card-title"><?=$result->query?></h5>
+				      	<p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+				      	<p class="card-text"><small class="text-muted"><?=date('d M Y',strtotime($result->created_at))?></small></p>
+						<h5 >Answers</h4>
+						<?php if(count($answers)): ?>
+						<ul class="list-group list-group-flush small" id="answer_result">
+							<?php foreach($answers as $answer): ?>
+								<li class="list-group-item">
+									<strong><?=ucwords($answer->author_name)?></strong>
+									<p class="card-text"><?=$answer->content?></p>
+									<small class="text-muted"><?=date('d M Y',strtotime($answer->created_at))?></small>
+								</li>
+							<?php endforeach; ?>
+						</ul>
 						<?php else: ?>
-							<div class="card-body">	
-								<div class="card-title">	
-										<h5>No Articles found</h5>
-								</div>
-							</div>
+							<h7>No Answers Yet</h5>
+						<?php endif; ?>
+						<br>
+						<?php if($id):?>
+							<?php echo form_open('aaq/add_answer');?>
+							<?php echo form_hidden('author_id',$id);?>
+							<?php echo form_hidden('question_id',$result->question_id);?>
+							<?php echo form_hidden('author_name',$this->session->userdata('dname'));?>
+							<?php echo form_hidden('created_at',date('Y-m-d H:i:s'));?>
+							
+							<label for="usr"><strong>Add an answer</strong></label>
+							<input type="text" name="content" class="form-control form-control" id="reply_input" placeholder="Type an answer" value="<?=set_value('reply_input')?>"/>
+							<?php echo form_error('content')?><br>
+							<button class= "btn btn-primary" id="reply">Submit</button>
+							<?php echo form_close(); ?>
+						<?php else:?>
+								<span>
+									You must be <a href="<?=base_url('Login')?>">logged in</a> to ask a question	
+								</span>
 						<?php endif;?>
-
+						 
 					</div>
-					<br>
 				</div>
-				<!-- END CATEGORY SECTION -->
-				
 			</div>
-
-	<!-- BEGIN SIDEBAR SECTION -->
+			<!-- END ASK A QUESTION SECTION -->
+		
+		<!-- BEGIN SIDEBAR SECTION -->
 			<div class="col-md-4 col-sm-12 sidebar-section">
-				<!-- BEGIN SEARCH BOX -->
-				<div class="row">
-					<!-- <div class="a-search">
-						<form class="article-search" method="" action="">
-							<table>
-								<tr>
-									<td class="w-100">
-										<input type="text" title="search" class="w-100" name="search" placeholder="Search articles"/>
-									</td>
-									<td>
-										<button class="search" name="searcha" onclick="">Search</button>
-									</td>
-								</tr>
-							</table>
-						</form>
-					</div> -->
-				</div>
-				<!-- END SEARCH BOX -->
-				<br>
-				<!-- BEGIN RECENT POSTS -->
 				<div class="row">
 					<div class="card w-100">
 						<div class="card-header">
@@ -96,7 +80,7 @@
 					</div>
 				</div> -->
 				<!-- END SQUIGGLES -->
-				<!-- <br><br> -->
+				<br><br>
 				<!-- BEGIN POPULAR CATEGORIES -->
 				<div class="row">
 					<div class="card w-100">
@@ -146,7 +130,7 @@
 
 			</div>
 		</div>
-	
-	<!-- END MAIN CONTENT SECTION -->
-	<br><br>
+		
+	<!-- END CONTENT SECTION -->
+
 <?php include('page_footer.php') ?>

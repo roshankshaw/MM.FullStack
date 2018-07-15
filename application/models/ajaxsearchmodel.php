@@ -12,4 +12,16 @@ class Ajaxsearchmodel extends CI_Model{
 		$this->db->order_by('created_at','desc');
 		return $this->db->get(); 
 	}
+
+	public function fetch_question($query)
+	{
+		$this->db->select();
+		$this->db->from('questions');
+		if($query != '')
+		{
+			$this->db->like('query',$query);
+		}
+		$this->db->order_by('created_at','desc');
+		return $this->db->get(); 
+	}
 }

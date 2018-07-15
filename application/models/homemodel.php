@@ -78,13 +78,13 @@ class Homemodel extends CI_Model{
 		return $q->result();
 	}
 	public function comment_posts(){
-		// $q=$this->db
-		// 			->from('articles')
-		// 			->select(['title','img_path','excerpts','post_id'])
-		// 			->order_by('created_at','desc')
-		// 			->limit(4)
-		// 			->get();
-		// return $q->result();
+		$q=$this->db
+					->from('comments')
+					->select()
+					->order_by('created_at','desc')
+					->limit(4)
+					->get();
+		return $q->result();
 	}
 	public function editor_pick1(){
 		$q=$this->db

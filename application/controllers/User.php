@@ -46,7 +46,7 @@ class User extends CI_Controller{
 				'editor_pick1'=>$editor_pick1,
 				'editor_pick2'=>$editor_pick2,
 		];
-
+		$this->session->set_userdata('referred_from', current_url());
 		$this->load->view('public/home.php',$data);
 		// else
 		// 	$this->load->view('public/afterLogin_home.php');
@@ -74,7 +74,7 @@ class User extends CI_Controller{
 				'comments'=>$post_comments,
 				'replies'=>$post_replies,
 		];
-
+		$this->session->set_userdata('referred_from', current_url());
 		$this->load->view('public/article_page',$data);
 	}
 	// *********************FOR THE ARTICLE_PAGE COMMENT AND REPIES ***********************

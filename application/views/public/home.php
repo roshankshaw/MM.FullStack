@@ -154,7 +154,7 @@
 			<!-- Begin Sidebar -->
 			<div class="sidebar-section col-md-4 col-sm-12">    
 				<!-- Begin squiggles -->
-				<div class="row">
+				<!-- <div class="row">
 					<div class="col-md-12 col-sm-12">	
 						<div class="card Sidebar">
 							<h4 class="card-header">Squiggles</h4>
@@ -163,11 +163,11 @@
 							</div>
 						</div>
 					</div>
-				</div>
+				</div> -->
 				<!-- End Squiggles -->
-				<br><br>
+				<!-- <br><br> -->
 				<!-- BEGIN PIC OF THE WEEK -->
-				<div class="row">
+				<!-- <div class="row">
 					<div class="col-md-12 col-sm-12">	
 						<div class="card Sidebar w-100">
 							<div class="card-header"><h4>Pic of the Week</h4></div>
@@ -179,11 +179,11 @@
 					  		</div>
 						</div>
 					</div>
-				</div>
+				</div> -->
 				<!-- END PIC OF THE WEEK -->
-				<br><br>
+				<!-- <br><br> -->
 				<!-- BEGIN FOLLOW US -->
-				<div class="row">
+				<!-- <div class="row">
 					<div class="col-md-12 col-sm-12">					
 						<div class="card Sidebar w-100">
 							<div class="card-header"><h4>Follow us on facebook</h4></div>
@@ -192,9 +192,9 @@
 							</div>
 						</div>
 					</div>
-				</div>
+				</div> -->
 				<!-- END FOLLOW US -->
-				<br><br>
+				<!-- <br><br> -->
 				<!-- BEGINSTUDENTPULSE -->
 				<div class="row">
 					<div class="col-md-12 col-sm-12">	
@@ -258,10 +258,10 @@
 											<li class="list-group-item">
 												<div class="row">
 													<div class="articles col-md-6 col-sm-6">
-														<img src="<?= $image->img_path ?>" alt="" class="img-fluid latestbar-img">
+														<strong><?=$image->author_name?></strong>
 													</div>
 													<div class="article-content col-md-6 col-sm-6 w-100 small">
-														<?= anchor("user/view_article/{$image->post_id}",$image->excerpts) ?>
+														<?= anchor("user/view_article/{$image->post_id}",$image->comment_body) ?>
 													</div>
 												</div>
 											</li>

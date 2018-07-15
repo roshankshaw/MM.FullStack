@@ -9,12 +9,8 @@
 				  	<div class="input-group-prepend">
 				    	<span class="input-group-text" id="inputGroup-sizing-default">Search</span>
 				  	</div>
-				  	<?php if($query!=''):?>
-					  	<input type="text" name="search_text" id="search_text" value="<?=$query?>" class="form-control" placeholder="Search Articles" aria-label="Default" aria-describedby="inputGroup-sizing-default">
-				  	<?php else:?>
 				  	<input type="text" name="search_text" id="search_text" class="form-control" placeholder="Search Articles" aria-label="Default" aria-describedby="inputGroup-sizing-default">
-				  	<?php endif; ?>	
-				</div>	
+				</div>
 				<div class="row" id="result">
 				</div>
 				<script src="<?=base_URL('assets/js/search.js')?>"></script>  

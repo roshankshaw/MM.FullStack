@@ -43,7 +43,7 @@ $config= ['login_rules'=> [
 		  						[
 		  							'field' => 'title',
 									'label' => 'Title of the article',
-									'rules' => 'required|alpha_numeric_spaces|trim'
+									'rules' => 'required|trim'
 		  						],
 		  						[
 		  							'field' => 'content',
@@ -67,5 +67,25 @@ $config= ['login_rules'=> [
 									'label' => 'Comment_body',
 									'rules' => 'required|trim'
 		  						],
+		  					],
+		  					'answer_rules'=>[
+		  						[
+		  							'field' => 'content',
+									'label' => 'content',
+									'rules' => 'required|trim'
+		  						],
+		  					],
+
+		  					'question_rules'=>[
+		  						[
+		  							'field' => 'query',
+									'label' => 'Query',
+									'rules' => 'required|trim'
+		  						],
+		  						[
+		  							'field' => 'authorities',
+									'label' => 'authorities',
+									'rules' => 'required|trim'
+		  						]
 		  					]
 		  				];

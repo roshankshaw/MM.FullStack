@@ -12,13 +12,11 @@ class Search extends MY_Controller{
 		$role=$this->session->userdata('role');		
 		$related_posts=$this->post->related_posts();
 		$recent_posts=$this->post->recent_posts();
-		$query=$this->input->post('search');
 		$data=[
 				'id'=>$id,
 				'role'=>$role,
 				'related_posts'=>$related_posts,
 				'recent_posts'=>$recent_posts,
-				'query'=>$query
 		];
 		$this->load->view('public/search_articles',$data);
 	}

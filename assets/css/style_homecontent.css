@@ -5,7 +5,9 @@
 	display:flex;
 	flex-wrap: wrap;
 }
-
+.post-new a{
+	color:gray;
+}
 
 
 
@@ -13,9 +15,11 @@
 /*NEWS FEED OF DEPARTMENTS,CAMPUS,VIEWS,CAREERS AND LATEST POST*/
 .feed-img{
 	display:flex;
-	flex-wrap: wrap;	
+	flex-wrap: wrap;
 }
-
+.article-content a{
+	color:gray;
+}
 .card{
 	border:none;
 }

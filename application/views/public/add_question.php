@@ -1,75 +1,56 @@
 <?php include('page_header.php') ?>
-		<link rel="stylesheet" href="../css/style_category.css">
 
-	<div class="container wrap">
-	<!-- BEGIN MAIN CONTENT SECTION -->	
-		<div class="row">
-			<div class="col-md-8 col-sm-12 category-section-view">
-				<!-- BEGIN CATEGORY SECTION -->
-				<div class="row">
-					<div class="card w-100 col-md-12">
-						<div class="card-header">
-							<h3><?= $catname ?></h3>
-						</div>
+
+	<div class="container wrap">	
+	<!-- MAIN CONTENT SECTION -->
+		<div class="row">	
+			<!-- BEGIN ASK A QUESTION SECTION -->
+			<div class="aaq-section-view col-md-8 col-sm-12">
+				<div class="card">
+					<div class="card-header">
+						<h3>ASK A QUESTION	</h3>
 					</div>
-				</div>
-				<br>
-				<div class="row">
-					<div class="card col-md-12">
-						<?php if(count($category)): ?>
-							<?php foreach($category as $article):?>
-								<div class="card-body">
-									<img src="<?=$article->img_path?>" alt="" class="img-fluid">
-									<br>
-									<h3><?=$article->title?></h3>
-									<span class="post-tags"><button class="btn btn-success">tag1</button>
-									<button class="btn btn-primary">tag2</button></span>
-									<br>
-									<span class="post-details small"><strong> <a href="#"><?=date('d M Y',strtotime($article->created_at))?></a> | <a href="#">Admin name</a></strong></span>
-									<br><br>
-									<article>
-										<?=$article->excerpts?>
-									</article>
-									<div class="text-right small"><a href="<?=base_URL("user/view_article/{$article->post_id}")?>">Read more..</a></div>
+					<div class="card-body">
+						<!-- FLASH ALERT -->
+						 <?php if($feedback = $this->session->flashdata('feedback')):
+									$feedback_class=$this->session->flashdata('feedback_class');
+							 ?>
+								<div class="row">
+									<div class="col-md-12">
+										<div class="alert alert-dismissible <?=$feedback_class?>">
+											<center><strong><?= $feedback ?></strong></center>
+										</div>
+									</div>
 								</div>
-							<?php endforeach;?>
-						<?php else: ?>
-							<div class="card-body">	
-								<div class="card-title">	
-										<h5>No Articles found</h5>
-								</div>
-							</div>
 						<?php endif;?>
-
+						<br>
+						<?php if($id):?>
+							<?php echo form_open('aaq/add_question');?>
+							<?php echo form_hidden('user_id',$id);?>
+							<?php echo form_hidden('created_at',date('Y-m-d H:i:s'));?>
+							
+							<label for="usr"><strong>Ask a Question</strong></label>
+							<input type="text" name="query" class="form-control form-control" placeholder="Type your Question" value="<?=set_value('query')?>"/>
+							<?php echo form_error('query')?><br>
+							 
+							 <label for="usr"><strong>Authorities you want to ask to</strong></label>
+							 <input type="text" name="authorities" class="form-control form-control" placeholder="e.g dean,etc" value="<?=set_value('authorities')?>"/>
+							<?php echo form_error('authorities')?><br>
+							
+							<button class= "btn btn-primary">Submit</button>
+							<?php echo form_close(); ?>
+						<?php else:?>
+								<span>
+									You must be <a href="<?=base_url('Login')?>">logged in</a> to ask a question	
+								</span>
+						<?php endif;?>
 					</div>
-					<br>
 				</div>
-				<!-- END CATEGORY SECTION -->
-				
 			</div>
-
-	<!-- BEGIN SIDEBAR SECTION -->
+			<!-- END ASK A QUESTION SECTION -->
+		
+		<!-- BEGIN SIDEBAR SECTION -->
 			<div class="col-md-4 col-sm-12 sidebar-section">
-				<!-- BEGIN SEARCH BOX -->
-				<div class="row">
-					<!-- <div class="a-search">
-						<form class="article-search" method="" action="">
-							<table>
-								<tr>
-									<td class="w-100">
-										<input type="text" title="search" class="w-100" name="search" placeholder="Search articles"/>
-									</td>
-									<td>
-										<button class="search" name="searcha" onclick="">Search</button>
-									</td>
-								</tr>
-							</table>
-						</form>
-					</div> -->
-				</div>
-				<!-- END SEARCH BOX -->
-				<br>
-				<!-- BEGIN RECENT POSTS -->
 				<div class="row">
 					<div class="card w-100">
 						<div class="card-header">
@@ -96,7 +77,7 @@
 					</div>
 				</div> -->
 				<!-- END SQUIGGLES -->
-				<!-- <br><br> -->
+				<br><br>
 				<!-- BEGIN POPULAR CATEGORIES -->
 				<div class="row">
 					<div class="card w-100">
@@ -146,7 +127,7 @@
 
 			</div>
 		</div>
-	
-	<!-- END MAIN CONTENT SECTION -->
-	<br><br>
+		
+	<!-- END CONTENT SECTION -->
+
 <?php include('page_footer.php') ?>

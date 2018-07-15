@@ -75,6 +75,7 @@
 										<input type="text" title="search" class="w-100" name="search" placeholder="Search articles"/>
 									</td>
 									<td>
+									
 										<button class="search" name="searcha" onclick="">Search</button>
 									</td>
 								</tr>
@@ -103,16 +104,16 @@
 				<!-- END RECENT POSTS -->
 				<br><br>
 				<!-- BEGIN SQUIGGLES -->
-				<div class="row">
+				<!-- <div class="row">
 					<div class="card">
 						<h4 class="card-header">Squiggles</h4>
 						<div class="card-body col-md-12 col-md-12 squiggles-content">
 							Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo adipisci molestiae suscipit assumenda. Nulla quam cupiditate, amet aspernatur perferendis exercitationem doloribus accusamus maiores praesentium illum!
 						</div>
 					</div>
-				</div>
+				</div> -->
 				<!-- END SQUIGGLES -->
-				<br><br>
+				<!-- <br><br> -->
 				<!-- BEGIN POPULAR CATEGORIES -->
 				<div class="row">
 					<div class="card w-100">
@@ -121,10 +122,10 @@
 						</div>
 						<div class="card-body">
 							<ul class="post-feed">
-								<li><a href="#">Careers</a></li>
-								<li><a href="#">Department of Computer Science</a></li>
-								<li><a href="#">Discussion Forum > Question</a></li>
-								<li><a href="#">Director's Desk</a></li>
+								<li><a href="<?=base_URL("category/view_page/car")?>">Careers</a></li>
+								<li><a href="category/view_sub_page/cs">Department of Computer Science</a></li>
+								<li><a href="aaq">Discussion Forum > Question</a></li>
+								<li><a href="category/view_page/ddc">Director's Desk</a></li>
 							</ul>
 						</div>
 					</div>

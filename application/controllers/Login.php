@@ -29,7 +29,11 @@ class Login extends MY_Controller{
 			if($login_id)
 			{
 				$this->session->set_userdata(['user_id'=>$login_id,'dname'=>$dname,'role'=>$role]);
-				return redirect('user');
+				$referred_from = $this->session->userdata('referred_from');
+				if($referred_from)
+					return redirect($referred_from);
+				else
+					return redirect('user');
 			}
 			else
 			{
@@ -42,8 +46,8 @@ class Login extends MY_Controller{
 		}
 	}
 	public function logout(){
-		$this->session->unset_userdata(['user_id','dname','role']);
-		return redirect('user');
+		$this->session->unset_userdata(['user_id','dname','role','referred_from']);
+		return redirect($_SERVER['HTTP_REFERER']);
 	}
 	
 }
