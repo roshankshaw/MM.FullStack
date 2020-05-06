@@ -10,4 +10,4 @@ It has a admin panel which helps to control the articles and varuious other feat
 
 It also has category wise filters for each article along with recommended articles for every article.
 It also enables reply to a question/comment given that you are logged in.
-Thus, this project is substantially covers all aspects of a News portal.
+Thus, this project substantially covers all aspects of a News portal.
